@@ -8,105 +8,92 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
+  <style>
+  * { margin:0; padding:0; box-sizing:border-box; }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #111;
-      color: #fff;
-      line-height: 1.6;
-    }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #111;
+    color: #fff;
+    line-height: 1.6;
+  }
 
-    header {
-      text-align: center;
-      padding: 60px 20px 40px 20px;
-      background-color: #000;
-    }
+  header {
+    text-align: center;
+    padding: 60px 20px 40px;
+    background-color: #000;
+  }
 
-    .logo {
-      max-width: 220px;
-      margin: 0 auto 20px auto;
-      display: block;
-    }
+  .logo {
+    max-width: 220px;
+    margin: 0 auto 20px;
+    display: block;
+  }
 
-    .header-hero {
-      font-family: 'Anton', sans-serif;
-      font-size: 80px;
-      text-transform: uppercase;
-      color: #fff;
-      margin-bottom: 10px;
-    }
-    @media(max-width:768px){
-  .header-hero { font-size: 36px; }
-    }
+  .header-hero {
+    font-family: 'Anton', sans-serif;
+    font-size: 80px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 10px;
+  }
 
-    .hero-subtitle {
-      font-family: 'Anton', sans-serif;
-      font-size: 28px;
-      color: #C8102E;
-      margin-bottom: 20px;
-    }
+  .hero-subtitle {
+    font-family: 'Anton', sans-serif;
+    font-size: 28px;
+    color: #C8102E;
+    margin-bottom: 20px;
+  }
 
-    .btn {
-      display: inline-block;
-      padding: 12px 30px;
-      background-color: #fff;
-      color: #111;
-      font-weight: 600;
-      text-transform: uppercase;
-      border-radius: 5px;
-      text-decoration: none;
-    }
+  .btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #fff;
+    color: #111;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 5px;
+    text-decoration: none;
+  }
 
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 30px;
-      padding: 50px 20px;
-    }
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    padding: 50px 20px;
+  }
 
-    .product-card {
-      background-color: #222;
-      border-radius: 10px;
-      overflow: hidden;
-    }
+  .product-card {
+    background: #222;
+    border-radius: 10px;
+    overflow: hidden;
+  }
 
-    .product-card img {
-      width: 100%;
-      display: block;
-    }
+  .product-card img {
+    width: 100%;
+    display: block;
+  }
 
-    .product-info {
-      padding: 15px;
-    }
+  .product-info {
+    padding: 15px;
+  }
 
-    .product-info h3 {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
+  .about, .contact {
+    padding: 60px 20px;
+    text-align: center;
+  }
 
-    .product-info p {
-      color: #aaa;
-      font-size: 14px;
-    }
+  footer {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+  }
 
-    .about, .contact {
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #111;
-      color: #777;
-      font-size: 14px;
-    }
-
-    @media(max-width:768px){
-      .header-hero { font-size: 40px; }
-    }
-  </style>
+  /* MOBILE FIX */
+  @media(max-width:768px){
+    .header-hero { font-size: 36px; }
+  }
+</style>
 </head>
 
 <body>
