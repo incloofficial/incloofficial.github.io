@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
@@ -8,14 +9,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
-  <style>
   * { margin:0; padding:0; box-sizing:border-box; }
 
   body {
     font-family: 'Poppins', sans-serif;
     background-color: #111;
     color: #fff;
-    line-height: 1.6;
   }
 
   header {
@@ -33,9 +32,6 @@
   .header-hero {
     font-family: 'Anton', sans-serif;
     font-size: 80px;
-    text-transform: uppercase;
-    color: #fff;
-    margin-bottom: 10px;
   }
 
   .hero-subtitle {
@@ -47,20 +43,18 @@
 
   .btn {
     display: inline-block;
-    padding: 12px 30px;
+    padding: 10px 25px;
     background: #fff;
     color: #111;
-    font-weight: 600;
-    text-transform: uppercase;
     border-radius: 5px;
     text-decoration: none;
   }
 
   .products {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    padding: 50px 20px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    padding: 40px 20px;
   }
 
   .product-card {
@@ -69,75 +63,93 @@
     overflow: hidden;
   }
 
-  .product-card img {
+  /* SLIDER */
+  .slider {
+    position: relative;
+  }
+
+  .slide {
     width: 100%;
+    display: none;
+  }
+
+  .slide.active {
     display: block;
   }
 
+  .slider button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.6);
+    border: none;
+    color: white;
+    padding: 8px;
+    cursor: pointer;
+  }
+
+  .prev { left: 5px; }
+  .next { right: 5px; }
+
   .product-info {
     padding: 15px;
-  }
-
-  .about, .contact {
-    padding: 60px 20px;
     text-align: center;
   }
 
-  footer {
-    text-align: center;
-    padding: 20px;
-    color: #777;
-  }
-
-  /* MOBILE FIX */
   @media(max-width:768px){
     .header-hero { font-size: 36px; }
   }
-</style>
+  </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header>
+<header>
+  <img src="logo.png" class="logo">
+  <h1 class="header-hero">INCLO OFFICIAL</h1>
+  <p class="hero-subtitle">MAKE OF INSULTS</p>
+  <a href="#products" class="btn">SHOP COLLECTION</a>
+</header>
 
-    <!-- LOGO FIX -->
-    <img src="./file_00000000556472069d10c0af39c85682.png" class="logo">
+<section class="products" id="products">
 
-    <h1 class="header-hero">INCLO OFFICIAL</h1>
-    <p class="hero-subtitle">MAKE OF INSULTS</p>
+  <!-- PRODUK 1 -->
+  <div class="product-card">
 
-    <a href="#products" class="btn">SHOP COLLECTION</a>
-  </header>
+    <div class="slider">
+      <img class="slide active" src="img1.png">
+      <img class="slide" src="img2.png">
+      <img class="slide" src="img3.png">
 
-  <!-- PRODUK -->
-  <section class="products" id="products">
-
-    <div class="product-card">
-      <img src="IMG_20260420_220716_815.png">
-      <div class="product-info">
-inclo        <h3>T-SHIRT FVCK STUPID POOR</h3>
-        <p>Rp110.000</p>
-        <a href="https://wa.me/6289666846125" class="btn">ORDER</a>
-      </div>
+      <button class="prev" onclick="moveSlide(this, -1)">❮</button>
+      <button class="next" onclick="moveSlide(this, 1)">❯</button>
     </div>
 
-  <!-- ABOUT -->
-  <section class="about">
-    <h2>Tentang INCLO</h2>
-    <p>INCLO: Your Complete Clothing Destination</p>
-  </section>
+    <div class="product-info">
+      <h3>NAMA PRODUK</h3>
+      <p>RpXXX.XXX</p>
+      <a href="https://wa.me/6289666846125" class="btn">ORDER</a>
+    </div>
 
-  <!-- CONTACT -->
-  <section class="contact">
-    <h2>Kontak Kami</h2>
-    <p>WhatsApp: 089666846125</p>
-    <p>Instagram: incloofficial</p>
-  </section>
+  </div>
 
-  <footer>
-    &copy; 2024 INCLO Official
-  </footer>
+</section>
+
+<script>
+function moveSlide(btn, step){
+  const slider = btn.parentElement;
+  const slides = slider.querySelectorAll(".slide");
+
+  let index = 0;
+  slides.forEach((s,i)=>{
+    if(s.classList.contains("active")) index = i;
+    s.classList.remove("active");
+  });
+
+  index = (index + step + slides.length) % slides.length;
+  slides[index].classList.add("active");
+}
+</script>
 
 </body>
 </html>
