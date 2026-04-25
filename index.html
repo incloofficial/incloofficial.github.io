@@ -64,13 +64,17 @@
     overflow: hidden;
   }
 
-  /* SLIDER */
+  /* FIX SLIDER */
   .slider {
     position: relative;
   }
 
-  .slide {
+  /* INI YANG NGEBENERIN BUG LO */
+  .product-card img {
     width: 100%;
+  }
+
+  .slide {
     display: none;
   }
 
@@ -117,8 +121,10 @@
 
 <header>
   <img src="./file_00000000556472069d10c0af39c85682.png" class="logo">
+
   <h1 class="header-hero">INCLO OFFICIAL</h1>
   <p class="hero-subtitle">MAKE OF INSULTS</p>
+
   <a href="#products" class="btn">SHOP COLLECTION</a>
 </header>
 
@@ -129,8 +135,8 @@
     <!-- SLIDER -->
     <div class="slider">
       <img class="slide active" src="IMG_20260421_130716_877.png">
-      <img class="slide" src="IMG_20260421_130716_877.png">
-      <img class="slide" src="IMG_20260421_130716_877.png">
+      <img class="slide" src="IMG_2.png">
+      <img class="slide" src="IMG_3.png">
 
       <button class="prev" onclick="moveSlide(this, -1)">❮</button>
       <button class="next" onclick="moveSlide(this, 1)">❯</button>
@@ -144,6 +150,41 @@
 
   </div>
 
+</section>
+
+<section class="about">
+  <h2>Tentang INCLO</h2>
+  <p>INCLO: Your Complete Clothing Destination</p>
+</section>
+
+<section class="contact">
+  <h2>Kontak Kami</h2>
+  <p>WhatsApp: 089666846125</p>
+  <p>Instagram: incloofficial</p>
+</section>
+
+<footer>
+  &copy; 2024 INCLO Official
+</footer>
+
+<script>
+function moveSlide(btn, step){
+  const slider = btn.parentElement;
+  const slides = slider.querySelectorAll(".slide");
+
+  let index = 0;
+  slides.forEach((s,i)=>{
+    if(s.classList.contains("active")) index = i;
+    s.classList.remove("active");
+  });
+
+  index = (index + step + slides.length) % slides.length;
+  slides[index].classList.add("active");
+}
+</script>
+
+</body>
+</html>
 </section>
 
 <section class="about">
