@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
@@ -43,18 +42,20 @@
 
   .btn {
     display: inline-block;
-    padding: 10px 25px;
+    padding: 12px 30px;
     background: #fff;
     color: #111;
+    font-weight: 600;
+    text-transform: uppercase;
     border-radius: 5px;
     text-decoration: none;
   }
 
   .products {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
-    padding: 40px 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    padding: 50px 20px;
   }
 
   .product-card {
@@ -63,7 +64,7 @@
     overflow: hidden;
   }
 
-  /* SLIDER */
+  /* SLIDER TAMBAHAN */
   .slider {
     position: relative;
   }
@@ -84,16 +85,26 @@
     background: rgba(0,0,0,0.6);
     border: none;
     color: white;
-    padding: 8px;
+    padding: 10px;
     cursor: pointer;
   }
 
-  .prev { left: 5px; }
-  .next { right: 5px; }
+  .prev { left: 10px; }
+  .next { right: 10px; }
 
   .product-info {
     padding: 15px;
+  }
+
+  .about, .contact {
+    padding: 60px 20px;
     text-align: center;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    color: #777;
   }
 
   @media(max-width:768px){
@@ -105,35 +116,51 @@
 <body>
 
 <header>
-  <img src="logo.png" class="logo">
+  <img src="./file_00000000556472069d10c0af39c85682.png" class="logo">
+
   <h1 class="header-hero">INCLO OFFICIAL</h1>
   <p class="hero-subtitle">MAKE OF INSULTS</p>
+
   <a href="#products" class="btn">SHOP COLLECTION</a>
 </header>
 
 <section class="products" id="products">
 
-  <!-- PRODUK 1 -->
   <div class="product-card">
 
+    <!-- GANTI GAMBAR JADI SLIDER -->
     <div class="slider">
-      <img class="slide active" src="img1.png">
-      <img class="slide" src="img2.png">
-      <img class="slide" src="img3.png">
+      <img class="slide active" src="IMG_20260420_220716_815.png">
+      <img class="slide" src="IMG_2.png">
+      <img class="slide" src="IMG_3.png">
 
       <button class="prev" onclick="moveSlide(this, -1)">❮</button>
       <button class="next" onclick="moveSlide(this, 1)">❯</button>
     </div>
 
     <div class="product-info">
-      <h3>NAMA PRODUK</h3>
-      <p>RpXXX.XXX</p>
+      <h3>T-SHIRT FVCK STUPID POOR</h3>
+      <p>Rp110.000</p>
       <a href="https://wa.me/6289666846125" class="btn">ORDER</a>
     </div>
-
   </div>
 
 </section>
+
+<section class="about">
+  <h2>Tentang INCLO</h2>
+  <p>INCLO: Your Complete Clothing Destination</p>
+</section>
+
+<section class="contact">
+  <h2>Kontak Kami</h2>
+  <p>WhatsApp: 089666846125</p>
+  <p>Instagram: incloofficial</p>
+</section>
+
+<footer>
+  &copy; 2024 INCLO Official
+</footer>
 
 <script>
 function moveSlide(btn, step){
