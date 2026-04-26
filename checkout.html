@@ -24,8 +24,8 @@ body{
 
 h1{
   font-family:'Anton';
-  margin-bottom:20px;
   text-align:center;
+  margin-bottom:20px;
 }
 
 .card{
@@ -34,6 +34,12 @@ h1{
   border-radius:10px;
   margin-bottom:20px;
   text-align:center;
+}
+
+img{
+  width:100%;
+  border-radius:10px;
+  margin-bottom:15px;
 }
 
 input, select{
@@ -61,17 +67,20 @@ button{
 <div class="container">
 
 <h1>CHECKOUT</h1>
-  
-<img id="1777183184183.png" style="width:100%;border-radius:10px;margin-bottom:15px;">
+
+<!-- GAMBAR PRODUK -->
+<img id="productImage">
+
 <div class="card">
   <h3 id="productName"></h3>
   <p id="productPrice"></p>
-
 </div>
 
+<!-- FORM (LANJUT KE SHIPPING) -->
 <form onsubmit="return goToShipping()">
-  <input type="hidden" name="product" id="formProduct">
-  <input type="hidden" name="price" id="formPrice">
+
+  <input type="hidden" id="formProduct">
+  <input type="hidden" id="formPrice">
 
   <input type="text" name="name" placeholder="Nama Lengkap" required>
   <input type="text" name="phone" placeholder="No HP" required>
@@ -85,23 +94,34 @@ button{
     <option>XL</option>
   </select>
 
-  <button type="submit">ORDER SEKARANG</button>
+  <button type="submit">LANJUT SHIPPING</button>
 
 </form>
 
 </div>
 
 <script>
+// ambil data dari URL
 const params = new URLSearchParams(window.location.search);
 
 const product = params.get("product");
 const price = params.get("price");
+const img = params.get("img");
 
+// tampilkan ke UI
 document.getElementById("productName").innerText = product;
 document.getElementById("productPrice").innerText = "Rp" + price;
+document.getElementById("productImage").src = img;
 
+// kirim ke hidden input
 document.getElementById("formProduct").value = product;
 document.getElementById("formPrice").value = price;
+
+// pindah ke shipping
+function goToShipping(){
+  window.location.href = "shipping.html";
+  return false;
+}
 </script>
 
 </body>
