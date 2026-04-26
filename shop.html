@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop - INCLO</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background:#111;
+  color:#fff;
+}
+
+/* NAV */
+nav {
+  padding:20px;
+  text-align:center;
+  background:#000;
+}
+nav a {
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* PRODUCT */
+.products {
+  padding:40px 20px;
+}
+
+.product-card {
+  max-width:400px;
+  margin:auto;
+  background:#222;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+/* SLIDER */
+.slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+.slides {
+  display:flex;
+  transition:1s ease;
+}
+
+.slide {
+  min-width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.slider button {
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.5);
+  color:#fff;
+  border:none;
+  padding:10px;
+  cursor:pointer;
+}
+
+.prev { left:10px; }
+.next { right:10px; }
+
+/* INFO */
+.product-info {
+  padding:15px;
+  text-align:center;
+}
+
+.product-info p {
+  margin-bottom:20px;
+}
+
+.btn {
+  background:#fff;
+  color:#111;
+  padding:10px 25px;
+  text-decoration:none;
+  font-weight:600;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html">← BACK TO HOME</a>
+</nav>
+
+<section class="products">
+
+<div class="product-card">
+
+  <div class="slider">
+    <div class="slides">
+      <img class="slide" src="1777183184183.png">
+      <img class="slide" src="169445691b6ea8319eb0d0ae2e6ecc63_2.png">
+      <img class="slide" src="23c27c529ae261b71b5e2ab097be7f8f_5.png">
+    </div>
+
+    <button class="prev">❮</button>
+    <button class="next">❯</button>
+  </div>
+
+  <div class="product-info">
+    <h3>T-SHIRT FVCK STUPID POOR</h3>
+    <p>Rp110.000</p>
+    <a href="https://wa.me/6289666846125" class="btn">ORDER</a>
+  </div>
+
+</div>
+
+</section>
+
+<script>
+document.querySelectorAll(".slider").forEach((slider)=>{
+  let slides = slider.querySelector(".slides");
+  let total = slider.querySelectorAll(".slide").length;
+  let index = 0;
+
+  function updateSlide(){
+    slides.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  slider.querySelector(".next").onclick = ()=>{
+    index = (index + 1) % total;
+    updateSlide();
+  };
+
+  slider.querySelector(".prev").onclick = ()=>{
+    index = (index - 1 + total) % total;
+    updateSlide();
+  };
+
+  setInterval(()=>{
+    index = (index + 1) % total;
+    updateSlide();
+  },3000);
+});
+</script>
+
+</body>
+</html>
