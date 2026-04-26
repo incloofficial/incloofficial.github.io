@@ -6,53 +6,96 @@
 <title>Shipping - INCLO</title>
 
 <style>
-body{font-family:sans-serif;background:#111;color:#fff;}
-.container{max-width:400px;margin:auto;padding:20px;}
-input,select{width:100%;padding:12px;margin-bottom:10px;border:none;border-radius:5px;}
-button{width:100%;padding:12px;background:#fff;color:#111;border:none;font-weight:bold;}
-img{width:100%;border-radius:10px;margin-bottom:10px;}
-.card{background:#222;padding:15px;border-radius:10px;margin-bottom:15px;text-align:center;}
+/* ===== SAME BACKGROUND ===== */
+html, body {
+  height: 100%;
+  margin:0;
+  background:#111;
+  color:#fff;
+  font-family:sans-serif;
+  text-align:center;
+  padding:30px;
+  overflow-x:hidden;
+}
+
+.card, h1, h2, h3, p, a, input, select, button{
+  position:relative;
+  z-index:1;
+}
+
+body::before, body::after{
+  content:"";
+  position:fixed;
+  top:50%;
+  left:50%;
+  width:500px;
+  height:500px;
+  transform:translate(-50%,-50%);
+  background:url("file_000000003b68720ba18667b200b70917.png") no-repeat center;
+  background-size:contain;
+  opacity:0.22;
+  pointer-events:none;
+  z-index:0;
+  animation: floatLogo 3.5s ease-in-out infinite;
+}
+
+body::after{
+  width:520px;
+  height:520px;
+  opacity:0.10;
+  filter: blur(18px);
+}
+
+@keyframes floatLogo {
+  0% {transform:translate(-50%,-50%) scale(1.75);}
+  50% {transform:translate(-50%,-55%) scale(2.2);}
+  100% {transform:translate(-50%,-50%) scale(1.75);}
+}
+
+/* ===== FORM ===== */
+form{
+  max-width:300px;
+  margin:auto;
+}
+
+input, select{
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+  border:none;
+  border-radius:5px;
+}
+
+button{
+  width:100%;
+  padding:10px;
+  border:none;
+  background:#fff;
+  color:#111;
+  font-weight:bold;
+}
 </style>
 </head>
 
 <body>
 
-<div class="container">
-
 <h2>SHIPPING</h2>
 
-<img id="productImage">
+<form action="payment.html">
 
-<div class="card">
-  <h3 id="productName"></h3>
-  <p id="productPrice"></p>
-</div>
+  <input type="text" placeholder="Nama" required>
+  <input type="text" placeholder="No HP" required>
+  <input type="text" placeholder="Alamat" required>
 
-<input type="text" placeholder="Nama Lengkap" required>
-<input type="text" placeholder="No HP" required>
-<input type="text" placeholder="Alamat" required>
+  <select>
+    <option>JNE</option>
+    <option>J&T</option>
+    <option>Shopee Express</option>
+  </select>
 
-<select>
-  <option>JNE</option>
-  <option>J&T</option>
-  <option>SPX</option>
-</select>
+  <button type="submit">LANJUT PAYMENT</button>
 
-<button onclick="goPayment()">LANJUT PAYMENT</button>
-
-</div>
-
-<script>
-const params = new URLSearchParams(window.location.search);
-
-document.getElementById("productName").innerText = params.get("product");
-document.getElementById("productPrice").innerText = "Rp" + params.get("price");
-document.getElementById("productImage").src = params.get("img");
-
-function goPayment(){
-  window.location.href = "payment.html";
-}
-</script>
+</form>
 
 </body>
 </html>
