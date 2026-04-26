@@ -6,34 +6,12 @@
 <title>Shipping - INCLO</title>
 
 <style>
-body{
-  font-family:sans-serif;
-  background:#111;
-  color:#fff;
-  padding:20px;
-}
-
-.container{
-  max-width:400px;
-  margin:auto;
-}
-
-input, select{
-  width:100%;
-  padding:12px;
-  margin-bottom:10px;
-  border:none;
-  border-radius:5px;
-}
-
-button{
-  width:100%;
-  padding:12px;
-  background:#fff;
-  color:#111;
-  border:none;
-  font-weight:bold;
-}
+body{font-family:sans-serif;background:#111;color:#fff;}
+.container{max-width:400px;margin:auto;padding:20px;}
+input,select{width:100%;padding:12px;margin-bottom:10px;border:none;border-radius:5px;}
+button{width:100%;padding:12px;background:#fff;color:#111;border:none;font-weight:bold;}
+img{width:100%;border-radius:10px;margin-bottom:10px;}
+.card{background:#222;padding:15px;border-radius:10px;margin-bottom:15px;text-align:center;}
 </style>
 </head>
 
@@ -41,27 +19,40 @@ button{
 
 <div class="container">
 
-<h2>SHIPPING INFO</h2>
+<h2>SHIPPING</h2>
 
-<form>
+<img id="productImage">
+
+<div class="card">
+  <h3 id="productName"></h3>
+  <p id="productPrice"></p>
+</div>
 
 <input type="text" placeholder="Nama Lengkap" required>
 <input type="text" placeholder="No HP" required>
-<input type="text" placeholder="Alamat Lengkap" required>
+<input type="text" placeholder="Alamat" required>
 
 <select>
   <option>JNE</option>
   <option>J&T</option>
-  <option>Shopee Express</option>
+  <option>SPX</option>
 </select>
 
-<a href="payment.html">
-  <button type="button">LANJUT PEMBAYARAN</button>
-</a>
-
-</form>
+<button onclick="goPayment()">LANJUT PAYMENT</button>
 
 </div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+
+document.getElementById("productName").innerText = params.get("product");
+document.getElementById("productPrice").innerText = "Rp" + params.get("price");
+document.getElementById("productImage").src = params.get("img");
+
+function goPayment(){
+  window.location.href = "payment.html";
+}
+</script>
 
 </body>
 </html>
