@@ -10,9 +10,6 @@
 /* 🔥 RESET */
 html, body {
   height: 100%;
-}
-
-body{
   margin:0;
   background:#111;
   color:#fff;
@@ -28,68 +25,74 @@ body{
   z-index:1;
 }
 
-/* 🔥 LOGO WATERMARK */
+/* =========================
+   🔥 LOGO WATERMARK UTAMA
+========================= */
 body::before{
   content:"";
   position:fixed;
   top:50%;
   left:50%;
-  width:320px;
-  height:320px;
+  width:500px;
+  height:500px;
 
   transform:translate(-50%,-50%);
 
-  background-image:url("file_00000000556472069d10c0af39c85682.png");
-  background-repeat:no-repeat;
-  background-position:center;
+  background:url("file_00000000556472069d10c0af39c85682.png") no-repeat center;
   background-size:contain;
 
-  opacity:0.15;
+  opacity:0.22;
   pointer-events:none;
   z-index:0;
 
-  animation: floatLogo 6s ease-in-out infinite;
+  animation: floatLogo 5s ease-in-out infinite;
 }
 
-/* 🔥 GLOW LOGO */
+/* =========================
+   🔥 GLOW PREMIUM
+========================= */
 body::after{
   content:"";
   position:fixed;
   top:50%;
   left:50%;
-  width:360px;
-  height:360px;
+  width:520px;
+  height:520px;
 
   transform:translate(-50%,-50%);
 
-  background-image:url("file_00000000556472069d10c0af39c85682.png");
-  background-repeat:no-repeat;
-  background-position:center;
+  background:url("file_00000000556472069d10c0af39c85682.png") no-repeat center;
   background-size:contain;
 
-  opacity:0.06;
-  filter: blur(12px);
+  opacity:0.10;
+  filter: blur(18px);
   pointer-events:none;
   z-index:0;
 
-  animation: glowPulse 4s ease-in-out infinite;
+  animation: glowPulse 3.5s ease-in-out infinite;
 }
 
-/* 🔥 ANIMASI FLOAT */
+/* =========================
+   🔥 ANIMASI FLOAT
+========================= */
 @keyframes floatLogo {
   0%   { transform:translate(-50%,-50%) scale(1); }
-  50%  { transform:translate(-50%,-53%) scale(1.05); }
+  50%  { transform:translate(-50%,-55%) scale(1.08); }
   100% { transform:translate(-50%,-50%) scale(1); }
 }
 
-/* 🔥 ANIMASI GLOW */
+/* =========================
+   🔥 ANIMASI GLOW
+========================= */
 @keyframes glowPulse {
-  0%   { opacity:0.02; }
-  50%  { opacity:0.07; }
-  100% { opacity:0.02; }
+  0%   { opacity:0.05; }
+  50%  { opacity:0.12; }
+  100% { opacity:0.05; }
 }
 
-/* 🔥 SHOP UI */
+/* =========================
+   🔥 SHOP UI
+========================= */
 .card{
   background:#222;
   padding:15px;
@@ -128,7 +131,7 @@ a{
   <h3>T-SHIRT FVCK STUPID POOR</h3>
   <p>Rp110.000</p>
 
-  <!-- 🔥 ORDER FLOW -->
+  <!-- 🔥 FLOW -->
   <a href="shipping.html?product=T-SHIRT FVCK STUPID POOR&price=110000&img=1777183184183.png">
     ORDER
   </a>
