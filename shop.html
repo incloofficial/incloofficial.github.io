@@ -1,12 +1,17 @@
-INCLO OFFICIAL<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shop - INCLO</title>
-  
-  <style>
-    
+
+<style>
+
+/* 🔥 RESET */
+html, body {
+  height: 100%;
+}
+
 body{
   margin:0;
   background:#111;
@@ -17,13 +22,13 @@ body{
   overflow-x:hidden;
 }
 
-/* konten di atas background */
+/* 🔥 BIAR KONTEN DI ATAS BACKGROUND */
 .card, h2, h3, p, a{
   position:relative;
   z-index:1;
 }
 
-/* 🔥 LOGO WATERMARK */
+/* 🔥 LOGO WATERMARK UTAMA */
 body::before{
   content:"";
   position:fixed;
@@ -34,44 +39,47 @@ body::before{
   transform:translate(-50%,-50%);
   background:url("file_00000000556472069d10c0af39c85682.png") no-repeat center;
   background-size:contain;
-  opacity:0.08;
+  opacity:0.12;
   pointer-events:none;
   z-index:0;
   animation: floatLogo 6s ease-in-out infinite;
+  will-change: transform;
 }
 
-/* 🔥 GLOW */
+/* 🔥 GLOW PREMIUM */
 body::after{
   content:"";
   position:fixed;
   top:50%;
   left:50%;
-  width:340px;
-  height:340px;
+  width:360px;
+  height:360px;
   transform:translate(-50%,-50%);
   background:url("file_00000000556472069d10c0af39c85682.png") no-repeat center;
   background-size:contain;
-  opacity:0.03;
-  filter: blur(10px);
+  opacity:0.05;
+  filter: blur(12px);
   pointer-events:none;
   z-index:0;
   animation: glowPulse 4s ease-in-out infinite;
+  will-change: opacity;
 }
 
-/* ANIMASI */
+/* 🔥 ANIMASI FLOAT */
 @keyframes floatLogo {
   0%   { transform:translate(-50%,-50%) scale(1); }
   50%  { transform:translate(-50%,-53%) scale(1.05); }
   100% { transform:translate(-50%,-50%) scale(1); }
 }
 
+/* 🔥 ANIMASI GLOW */
 @keyframes glowPulse {
   0%   { opacity:0.02; }
   50%  { opacity:0.07; }
   100% { opacity:0.02; }
 }
 
-/* UI */
+/* 🔥 UI SHOP */
 .card{
   background:#222;
   padding:15px;
@@ -94,8 +102,8 @@ a{
   text-decoration:none;
   font-weight:bold;
 }
-  </style>
 
+</style>
 
 </head>
 
@@ -110,7 +118,7 @@ a{
   <h3>T-SHIRT FVCK STUPID POOR</h3>
   <p>Rp110.000</p>
 
-  <!-- 🔥 FLOW BENAR -->
+  <!-- 🔥 ORDER → SHIPPING -->
   <a href="shipping.html?product=T-SHIRT FVCK STUPID POOR&price=110000&img=1777183184183.png">
     ORDER
   </a>
