@@ -5,22 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Checkout - INCLO</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
 body{
-  font-family:sans-serif;
+  font-family:'Poppins',sans-serif;
   background:#111;
   color:#fff;
-  padding:20px;
 }
 
 .container{
   max-width:400px;
   margin:auto;
+  padding:30px 20px;
+}
+
+h1{
+  font-family:'Anton';
+  margin-bottom:20px;
+  text-align:center;
+}
+
+.card{
+  background:#222;
+  padding:15px;
+  border-radius:10px;
+  margin-bottom:20px;
+  text-align:center;
 }
 
 input, select{
   width:100%;
-  padding:10px;
+  padding:12px;
   margin-bottom:10px;
   border:none;
   border-radius:5px;
@@ -32,7 +50,8 @@ button{
   background:#fff;
   color:#111;
   border:none;
-  font-weight:bold;
+  font-weight:600;
+  cursor:pointer;
 }
 </style>
 </head>
@@ -40,13 +59,22 @@ button{
 <body>
 
 <div class="container">
+
 <h1>CHECKOUT</h1>
+
+<div class="card">
+  <h3 id="productName"></h3>
+  <p id="productPrice"></p>
+</div>
 
 <form action="https://formspree.io/f/xqewjggw" method="POST">
 
+  <input type="hidden" name="product" id="formProduct">
+  <input type="hidden" name="price" id="formPrice">
+
   <input type="text" name="name" placeholder="Nama Lengkap" required>
   <input type="text" name="phone" placeholder="No HP" required>
-  <input type="text" name="address" placeholder="Alamat" required>
+  <input type="text" name="address" placeholder="Alamat Lengkap" required>
 
   <select name="size" required>
     <option value="">Pilih Size</option>
@@ -61,6 +89,19 @@ button{
 </form>
 
 </div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+
+const product = params.get("product");
+const price = params.get("price");
+
+document.getElementById("productName").innerText = product;
+document.getElementById("productPrice").innerText = "Rp" + price;
+
+document.getElementById("formProduct").value = product;
+document.getElementById("formPrice").value = price;
+</script>
 
 </body>
 </html>
