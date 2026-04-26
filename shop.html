@@ -8,58 +8,62 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
+*{margin:0;padding:0;box-sizing:border-box;}
 
-body {
-  font-family: 'Poppins', sans-serif;
+body{
+  font-family:'Poppins',sans-serif;
   background:#111;
   color:#fff;
 }
 
 /* NAV */
-nav {
+nav{
   padding:20px;
   text-align:center;
   background:#000;
 }
-nav a {
+
+nav a{
   color:#fff;
   text-decoration:none;
   font-weight:600;
 }
 
-/* PRODUCT */
-.products {
+/* GRID PRODUK */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
   padding:40px 20px;
 }
 
-.product-card {
-  max-width:400px;
-  margin:auto;
+/* CARD */
+.product-card{
   background:#222;
   border-radius:10px;
   overflow:hidden;
 }
 
 /* SLIDER */
-.slider {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  overflow: hidden;
-}
-.slides {
-  display:flex;
-  transition:1s ease;
+.slider{
+  position:relative;
+  width:100%;
+  aspect-ratio:3/4;
+  overflow:hidden;
 }
 
-.slide {
+.slides{
+  display:flex;
+  transition:1s;
+}
+
+.slide{
   min-width:100%;
   height:100%;
   object-fit:cover;
 }
 
-.slider button {
+.slider button{
   position:absolute;
   top:50%;
   transform:translateY(-50%);
@@ -70,25 +74,26 @@ nav a {
   cursor:pointer;
 }
 
-.prev { left:10px; }
-.next { right:10px; }
+.prev{left:10px;}
+.next{right:10px;}
 
 /* INFO */
-.product-info {
+.product-info{
   padding:15px;
   text-align:center;
 }
 
-.product-info p {
-  margin-bottom:20px;
+.product-info p{
+  margin:10px 0 20px;
 }
 
-.btn {
+.btn{
   background:#fff;
   color:#111;
-  padding:10px 25px;
+  padding:10px 20px;
   text-decoration:none;
   font-weight:600;
+  display:inline-block;
 }
 </style>
 </head>
@@ -101,15 +106,14 @@ nav a {
 
 <section class="products">
 
+<!-- PRODUK 1 -->
 <div class="product-card">
-
   <div class="slider">
     <div class="slides">
       <img class="slide" src="1777183184183.png">
       <img class="slide" src="169445691b6ea8319eb0d0ae2e6ecc63_2.png">
       <img class="slide" src="23c27c529ae261b71b5e2ab097be7f8f_5.png">
     </div>
-
     <button class="prev">❮</button>
     <button class="next">❯</button>
   </div>
@@ -119,7 +123,25 @@ nav a {
     <p>Rp110.000</p>
     <a href="https://wa.me/6289666846125" class="btn">ORDER</a>
   </div>
+</div>
 
+<!-- DUPLIKAT PRODUK (TINGGAL COPY BUAT TAMBAH) -->
+<div class="product-card">
+  <div class="slider">
+    <div class="slides">
+      <img class="slide" src="1777183184183.png">
+      <img class="slide" src="169445691b6ea8319eb0d0ae2e6ecc63_2.png">
+      <img class="slide" src="23c27c529ae261b71b5e2ab097be7f8f_5.png">
+    </div>
+    <button class="prev">❮</button>
+    <button class="next">❯</button>
+  </div>
+
+  <div class="product-info">
+    <h3>INCLO TEE BLACK</h3>
+    <p>Rp120.000</p>
+    <a href="https://wa.me/6289666846125" class="btn">ORDER</a>
+  </div>
 </div>
 
 </section>
