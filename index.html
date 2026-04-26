@@ -19,7 +19,7 @@ body {
 /* HEADER */
 header {
   text-align:center;
-  padding:60px 20px;
+  padding:80px 20px;
   background:#000;
 }
 
@@ -33,70 +33,17 @@ header {
 .hero-subtitle {
   font-family:'Anton';
   color:#C8102E;
-  margin:10px 0 20px;
+  margin:10px 0 30px;
 }
 
 .btn {
   background:#fff;
   color:#111;
-  padding:10px 25px;
+  padding:12px 30px;
   text-decoration:none;
   font-weight:600;
+  display:inline-block;
 }
-
-/* PRODUCT */
-.products {
-  padding:40px 20px;
-}
-
-.product-card {
-  max-width:400px;
-  margin:auto;
-  background:#222;
-  border-radius:10px;
-  overflow:hidden;
-}
-
-/* SLIDER */
-.slider {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  overflow: hidden;
-}
-.slides {
-  display:flex;
-  transition:1.0s ease;
-}
-
-.slide {
-  min-width: 100%;
-  height: 100%; 
-  object-fit: cover;
-}
-
-.slider button {
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:rgba(0,0,0,0.5);
-  color:#fff;
-  border:none;
-  padding:10px;
-  cursor:pointer;
-}
-
-.prev { left:10px; }
-.next { right:10px; }
-
-/* INFO */
-.product-info {
-  padding:15px;
-  text-align:center;
-}
-  .product-info p {
-  margin-bottom: 30px;
-  }
 </style>
 </head>
 
@@ -105,62 +52,11 @@ header {
 <header>
   <img src="file_00000000556472069d10c0af39c85682.png" class="logo">
   <h1 class="header-hero">INCLO OFFICIAL</h1>
-  <p class="hero-subtitle">MAKE OF INSULTS</p>
-  <a href="#products" class="btn">SHOP COLLECTION</a>
+  <p class="hero-subtitle">MADE OF INSULTS</p>
+
+  <!-- PENTING: pindah ke shop.html -->
+  <a href="shop.html" class="btn">SHOP COLLECTION</a>
 </header>
-
-<section class="products" id="products">
-
-<div class="product-card">
-
-  <div class="slider">
-    <div class="slides">
-      <img class="slide" src="1777183184183.png">
-      <img class="slide" src="169445691b6ea8319eb0d0ae2e6ecc63_2.png">
-      <img class="slide" src="23c27c529ae261b71b5e2ab097be7f8f_5.png">
-    </div>
-
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-
-  <div class="product-info">
-    <h3>T-SHIRT FVCK STUPID POOR</h3>
-    <p>Rp110.000</p>
-    <a href="https://wa.me/6289666846125" class="btn">ORDER</a>
-  </div>
-
-</div>
-
-</section>
-
-<script>
-document.querySelectorAll(".slider").forEach((slider)=>{
-  let slides = slider.querySelector(".slides");
-  let total = slider.querySelectorAll(".slide").length;
-  let index = 0;
-
-  function updateSlide(){
-    slides.style.transform = `translateX(-${index * 100}%)`;
-  }
-
-  slider.querySelector(".next").onclick = ()=>{
-    index = (index + 1) % total;
-    updateSlide();
-  };
-
-  slider.querySelector(".prev").onclick = ()=>{
-    index = (index - 1 + total) % total;
-    updateSlide();
-  };
-
-  // AUTO SLIDE
-  setInterval(()=>{
-    index = (index + 1) % total;
-    updateSlide();
-  },3000);
-});
-</script>
 
 </body>
 </html>
