@@ -1,54 +1,83 @@
-<!-- PRODUK 1 -->
-<div class="product-card">
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop - INCLO</title>
 
-  <div class="slider">
-    <div class="slides">
-      <img class="slide" src="1777183184183.png">
-      <img class="slide" src="169445691b6ea8319eb0d0ae2e6ecc63_2.png">
-      <img class="slide" src="23c27c529ae261b71b5e2ab097be7f8f_5.png">
-    </div>
+<style>
+body{
+  margin:0;
+  font-family:sans-serif;
+  background:#111;
+  color:#fff;
+}
 
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
+nav{
+  padding:20px;
+  text-align:center;
+  background:#000;
+}
 
-  <div class="product-info">
-    <h3>T-SHIRT FVCK STUPID POOR</h3>
-    <p>Rp110.000</p>
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+}
 
-    <!-- 🔥 INI YANG SUDAH FIX FLOW BARU -->
-    <a href="shipping.html?product=T-SHIRT FVCK STUPID POOR&price=110000&img=1777183184183.png" class="btn">
-      ORDER
-    </a>
-  </div>
+.container{
+  padding:30px 20px;
+  text-align:center;
+}
+
+.card{
+  background:#222;
+  padding:15px;
+  border-radius:10px;
+  max-width:300px;
+  margin:auto;
+}
+
+img{
+  width:100%;
+  border-radius:10px;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:15px;
+  background:#fff;
+  color:#111;
+  padding:10px 20px;
+  text-decoration:none;
+  font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html">← BACK HOME</a>
+</nav>
+
+<div class="container">
+
+<div class="card">
+
+  <img src="1777183184183.png">
+
+  <h3>T-SHIRT FVCK STUPID POOR</h3>
+  <p>Rp110.000</p>
+
+  <!-- 🔥 INI YANG PENTING (LANGSUNG KE SHIPPING) -->
+  <a class="btn" href="shipping.html?product=T-SHIRT FVCK STUPID POOR&price=110000&img=1777183184183.png">
+    ORDER
+  </a>
 
 </div>
 
-</section>
+</div>
 
-<script>
-document.querySelectorAll(".slider").forEach((slider)=>{
-  let slides = slider.querySelector(".slides");
-  let total = slider.querySelectorAll(".slide").length;
-  let index = 0;
-
-  function updateSlide(){
-    slides.style.transform = `translateX(-${index * 100}%)`;
-  }
-
-  slider.querySelector(".next").onclick = ()=>{
-    index = (index + 1) % total;
-    updateSlide();
-  };
-
-  slider.querySelector(".prev").onclick = ()=>{
-    index = (index - 1 + total) % total;
-    updateSlide();
-  };
-
-  setInterval(()=>{
-    index = (index + 1) % total;
-    updateSlide();
-  },3000);
-});
-</script>
+</body>
+</html>
