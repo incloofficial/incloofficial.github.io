@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout - INCLO</title>
+
+<style>
+body{
+  font-family:sans-serif;
+  background:#111;
+  color:#fff;
+  padding:20px;
+}
+
+.container{
+  max-width:400px;
+  margin:auto;
+}
+
+input, select{
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+  border:none;
+  border-radius:5px;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  background:#fff;
+  color:#111;
+  border:none;
+  font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>CHECKOUT</h1>
+
+<form action="https://formspree.io/f/xqewjggw" method="POST">
+
+  <input type="text" name="name" placeholder="Nama Lengkap" required>
+  <input type="text" name="phone" placeholder="No HP" required>
+  <input type="text" name="address" placeholder="Alamat" required>
+
+  <select name="size" required>
+    <option value="">Pilih Size</option>
+    <option>S</option>
+    <option>M</option>
+    <option>L</option>
+    <option>XL</option>
+  </select>
+
+  <button type="submit">ORDER SEKARANG</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
