@@ -7,59 +7,75 @@
 
 <style>
 body{
+  margin:0;
   font-family:sans-serif;
   background:#111;
   color:#fff;
-  padding:20px;
-}
-
-.container{
-  max-width:400px;
-  margin:auto;
   text-align:center;
+  padding:30px;
 }
 
-.box{
+.card{
   background:#222;
   padding:20px;
   border-radius:10px;
-  margin-bottom:15px;
+  max-width:400px;
+  margin:auto;
 }
 
-button{
+h2{
+  font-family:Anton, sans-serif;
+  margin-bottom:20px;
+}
+
+.btn{
+  display:block;
   width:100%;
   padding:12px;
   background:#fff;
   color:#111;
   border:none;
   font-weight:bold;
-  margin-top:10px;
+  margin-top:15px;
+  cursor:pointer;
+}
+
+.qr{
+  width:100%;
+  border-radius:10px;
+  margin:15px 0;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-
 <h2>PAYMENT</h2>
 
-<div class="box">
-  <h3>TRANSFER BANK</h3>
-  <p>BCA: 123-456-789</p>
-  <p>a.n INCLO OFFICIAL</p>
+<div class="card">
+
+  <p>Transfer ke rekening:</p>
+  <h3>BRI: 215301003030504
+SEABANK: 901981840500</h3>
+  <p>a.n IRHAM NUR CHOLIS</p>
+
+  <hr style="margin:15px 0;opacity:0.2;">
+
+  <p>atau scan QRIS:</p>
+  <img class="qr" src="qris.png" alt="QRIS">
+
+  <button class="btn" onclick="finishOrder()">
+    KONFIRMASI ORDER
+  </button>
+
 </div>
 
-<div class="box">
-  <h3>QRIS</h3>
-  <p>(taruh gambar QR nanti di sini)</p>
-</div>
-
-<button onclick="alert('Order kamu akan diproses')">
-  KONFIRMASI PEMBAYARAN
-</button>
-
-</div>
+<script>
+function finishOrder(){
+  alert("Order berhasil dibuat!");
+  window.location.href = "index.html";
+}
+</script>
 
 </body>
 </html>
