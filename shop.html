@@ -4,71 +4,9 @@ INCLO OFFICIAL<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shop - INCLO</title>
-
-<style>
-  body{
-  margin:0;
-  background:#111;
-  font-family:sans-serif;
-  overflow-x:hidden;
-}
-
-/* 🔥 Biar konten tetap di atas background */
-.container, nav, .card, h1, h2, h3, p, button, a {
-  position:relative;
-  z-index:1;
-}
-
-/* 🔥 LOGO WATERMARK UTAMA */
-body::before{
-  content:"";
-  position:fixed;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:320px;
-  height:320px;
-  background:url("file_00000000556472069d10c0af39c85682.png") no-repeat center;
-  background-size:contain;
-  opacity:0.07;
-  pointer-events:none;
-  z-index:0;
-
-  animation: floatLogo 8s ease-in-out infinite;
-}
-
-/* 🔥 GLOW HALUS PREMIUM */
-body::after{
-  content:"";
-  position:fixed;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:360px;
-  height:360px;
-  background:url("file_00000000556472069d10c0af39c85682.png") no-repeat center;
-  background-size:contain;
-  opacity:0.03;
-  filter: blur(10px);
-  pointer-events:none;
-  z-index:0;
-
-  animation: glowPulse 4s ease-in-out infinite;
-}
-
-/* 🔥 ANIMASI GERAK PELAN */
-@keyframes floatLogo {
-  0%   { transform:translate(-50%,-50%) scale(1); }
-  50%  { transform:translate(-50%,-52%) scale(1.03); }
-  100% { transform:translate(-50%,-50%) scale(1); }
-}
-
-/* 🔥 PULSE GLOW */
-@keyframes glowPulse {
-  0%   { opacity:0.02; }
-  50%  { opacity:0.06; }
-  100% { opacity:0.02; }
-}
+  
+  <style>
+    
 body{
   margin:0;
   background:#111;
@@ -76,8 +14,64 @@ body{
   font-family:sans-serif;
   text-align:center;
   padding:30px;
+  overflow-x:hidden;
 }
 
+/* konten di atas background */
+.card, h2, h3, p, a{
+  position:relative;
+  z-index:1;
+}
+
+/* 🔥 LOGO WATERMARK */
+body::before{
+  content:"";
+  position:fixed;
+  top:50%;
+  left:50%;
+  width:320px;
+  height:320px;
+  transform:translate(-50%,-50%);
+  background:url("file_00000000556472069d10c0af39c85682.png") no-repeat center;
+  background-size:contain;
+  opacity:0.08;
+  pointer-events:none;
+  z-index:0;
+  animation: floatLogo 6s ease-in-out infinite;
+}
+
+/* 🔥 GLOW */
+body::after{
+  content:"";
+  position:fixed;
+  top:50%;
+  left:50%;
+  width:340px;
+  height:340px;
+  transform:translate(-50%,-50%);
+  background:url("file_00000000556472069d10c0af39c85682.png") no-repeat center;
+  background-size:contain;
+  opacity:0.03;
+  filter: blur(10px);
+  pointer-events:none;
+  z-index:0;
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+/* ANIMASI */
+@keyframes floatLogo {
+  0%   { transform:translate(-50%,-50%) scale(1); }
+  50%  { transform:translate(-50%,-53%) scale(1.05); }
+  100% { transform:translate(-50%,-50%) scale(1); }
+}
+
+@keyframes glowPulse {
+  0%   { opacity:0.02; }
+  50%  { opacity:0.07; }
+  100% { opacity:0.02; }
+}
+
+/* UI */
 .card{
   background:#222;
   padding:15px;
@@ -100,7 +94,9 @@ a{
   text-decoration:none;
   font-weight:bold;
 }
-</style>
+  </style>
+
+
 </head>
 
 <body>
