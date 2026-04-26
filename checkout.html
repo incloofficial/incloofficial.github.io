@@ -68,7 +68,6 @@ button{
 
 <h1>CHECKOUT</h1>
 
-<!-- GAMBAR PRODUK -->
 <img id="productImage">
 
 <div class="card">
@@ -76,17 +75,16 @@ button{
   <p id="productPrice"></p>
 </div>
 
-<!-- FORM (LANJUT KE SHIPPING) -->
-<form onsubmit="return goToShipping()">
+<form>
 
   <input type="hidden" id="formProduct">
   <input type="hidden" id="formPrice">
 
-  <input type="text" name="name" placeholder="Nama Lengkap" required>
-  <input type="text" name="phone" placeholder="No HP" required>
-  <input type="text" name="address" placeholder="Alamat Lengkap" required>
+  <input type="text" placeholder="Nama Lengkap" required>
+  <input type="text" placeholder="No HP" required>
+  <input type="text" placeholder="Alamat Lengkap" required>
 
-  <select name="size" required>
+  <select required>
     <option value="">Pilih Size</option>
     <option>S</option>
     <option>M</option>
@@ -94,7 +92,9 @@ button{
     <option>XL</option>
   </select>
 
-  <button type="submit">LANJUT SHIPPING</button>
+  <button type="button" onclick="goToShipping()">
+    LANJUT SHIPPING
+  </button>
 
 </form>
 
@@ -113,14 +113,13 @@ document.getElementById("productName").innerText = product;
 document.getElementById("productPrice").innerText = "Rp" + price;
 document.getElementById("productImage").src = img;
 
-// kirim ke hidden input
+// hidden data (buat nanti kalau mau upgrade)
 document.getElementById("formProduct").value = product;
 document.getElementById("formPrice").value = price;
 
-// pindah ke shipping
+// pindah halaman
 function goToShipping(){
   window.location.href = "shipping.html";
-  return false;
 }
 </script>
 
