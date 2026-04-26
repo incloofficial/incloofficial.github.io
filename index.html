@@ -8,41 +8,54 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
+*{margin:0;padding:0;box-sizing:border-box;}
 
-body {
-  font-family: 'Poppins', sans-serif;
+body{
+  font-family:'Poppins',sans-serif;
   background:#111;
   color:#fff;
 }
 
-/* HEADER */
-header {
+/* HERO FULLSCREEN */
+header{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
   text-align:center;
-  padding:80px 20px;
   background:#000;
+  padding:20px;
 }
 
-.logo { max-width:200px; margin-bottom:20px; }
+.logo{
+  max-width:180px;
+  margin-bottom:20px;
+}
 
-.header-hero {
+.header-hero{
   font-family:'Anton';
-  font-size:60px;
+  font-size:clamp(40px,8vw,80px);
 }
 
-.hero-subtitle {
+.hero-subtitle{
   font-family:'Anton';
   color:#C8102E;
   margin:10px 0 30px;
 }
 
-.btn {
+.btn{
   background:#fff;
   color:#111;
   padding:12px 30px;
   text-decoration:none;
   font-weight:600;
-  display:inline-block;
+  transition:.3s;
+}
+
+.btn:hover{
+  background:#C8102E;
+  color:#fff;
 }
 </style>
 </head>
@@ -51,10 +64,10 @@ header {
 
 <header>
   <img src="file_00000000556472069d10c0af39c85682.png" class="logo">
+
   <h1 class="header-hero">INCLO OFFICIAL</h1>
   <p class="hero-subtitle">MADE OF INSULTS</p>
 
-  <!-- PENTING: pindah ke shop.html -->
   <a href="shop.html" class="btn">SHOP COLLECTION</a>
 </header>
 
