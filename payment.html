@@ -6,7 +6,9 @@
 <title>Payment - INCLO</title>
 
 <style>
-  body{
+
+/* ================= BASE ================= */
+body{
   margin:0;
   background:#111;
   font-family:sans-serif;
@@ -14,73 +16,63 @@
   text-align:center;
   padding:30px;
   overflow-x:hidden;
-  }
+}
 
-/* 🔥 Biar konten tetap di atas background */
-.container, nav, .card, h1, h2, h3, p, button, a {
+/* ================= FRONT LAYER ================= */
+.card, h1, h2, h3, p, button, a, img{
   position:relative;
   z-index:1;
 }
 
-/* 🔥 LOGO WATERMARK UTAMA */
+/* ================= BACKGROUND LOGO ================= */
 body::before{
   content:"";
   position:fixed;
   top:50%;
   left:50%;
+  width:500px;
+  height:500px;
   transform:translate(-50%,-50%);
-  width:320px;
-  height:320px;
   background:url("file_000000003b68720ba18667b200b70917.png") no-repeat center;
   background-size:contain;
-  opacity:0.07;
+  opacity:0.22;
   pointer-events:none;
   z-index:0;
-
-  animation: floatLogo 8s ease-in-out infinite;
+  animation: floatLogo 3.5s ease-in-out infinite;
 }
 
-/* 🔥 GLOW HALUS PREMIUM */
+/* ================= GLOW ================= */
 body::after{
   content:"";
   position:fixed;
   top:50%;
   left:50%;
+  width:520px;
+  height:520px;
   transform:translate(-50%,-50%);
-  width:360px;
-  height:360px;
   background:url("file_000000003b68720ba18667b200b70917.png") no-repeat center;
   background-size:contain;
-  opacity:0.03;
-  filter: blur(10px);
+  opacity:0.10;
+  filter: blur(18px);
   pointer-events:none;
   z-index:0;
-
-  animation: glowPulse 4s ease-in-out infinite;
+  animation: glowPulse 3.5s ease-in-out infinite;
 }
 
-/* 🔥 ANIMASI GERAK PELAN */
+/* ================= ANIMATION ================= */
 @keyframes floatLogo {
-  0%   { transform:translate(-50%,-50%) scale(1.75); }
-  50%  { transform:translate(-50%,-52%) scale(2.5); }
-  100% { transform:translate(-50%,-50%) scale(1.75); }
+  0% {transform:translate(-50%,-50%) scale(1.75);}
+  50% {transform:translate(-50%,-55%) scale(2.2);}
+  100% {transform:translate(-50%,-50%) scale(1.75);}
 }
 
-/* 🔥 PULSE GLOW */
 @keyframes glowPulse {
-  0%   { opacity:0.02; }
-  50%  { opacity:0.06; }
-  100% { opacity:0.02; }
-}
-body{
-  margin:0;
-  font-family:sans-serif;
-  background:#111;
-  color:#fff;
-  text-align:center;
-  padding:30px;
+  0% {opacity:0.05;}
+  50% {opacity:0.12;}
+  100% {opacity:0.05;}
 }
 
+/* ================= UI ================= */
 .card{
   background:#222;
   padding:20px;
@@ -90,7 +82,6 @@ body{
 }
 
 h2{
-  font-family:Anton, sans-serif;
   margin-bottom:20px;
 }
 
@@ -111,6 +102,7 @@ h2{
   border-radius:10px;
   margin:15px 0;
 }
+
 </style>
 </head>
 
