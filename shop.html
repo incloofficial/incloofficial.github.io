@@ -7,55 +7,100 @@
 
 <style>
 
-/* ================= BASE ================= */
-body{
+/* ===== BASE ===== */
+html, body {
+  height: 100%;
   margin:0;
   background:#111;
   color:#fff;
   font-family:sans-serif;
   text-align:center;
   padding:30px;
+  overflow-x:hidden;
 }
 
-/* ================= GRID ================= */
-.products{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px;
+/* ===== CONTENT ABOVE BG ===== */
+.card, h1, h2, h3, p, a, input, select, button{
+  position:relative;
+  z-index:1;
 }
 
-/* ================= CARD ================= */
+/* ===== LOGO ===== */
+body::before{
+  content:"";
+  position:fixed;
+  top:50%;
+  left:50%;
+  width:500px;
+  height:500px;
+  transform:translate(-50%,-50%);
+  background:url("file_000000003b68720ba18667b200b70917.png") no-repeat center;
+  background-size:contain;
+  opacity:0.22;
+  pointer-events:none;
+  z-index:0;
+  animation: floatLogo 3.5s ease-in-out infinite;
+}
+
+/* ===== GLOW ===== */
+body::after{
+  content:"";
+  position:fixed;
+  top:50%;
+  left:50%;
+  width:520px;
+  height:520px;
+  transform:translate(-50%,-50%);
+  background:url("file_000000003b68720ba18667b200b70917.png") no-repeat center;
+  background-size:contain;
+  opacity:0.10;
+  filter: blur(18px);
+  pointer-events:none;
+  z-index:0;
+  animation: glowPulse 3.5s ease-in-out infinite;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes floatLogo {
+  0% {transform:translate(-50%,-50%) scale(1.75);}
+  50% {transform:translate(-50%,-55%) scale(2.2);}
+  100% {transform:translate(-50%,-50%) scale(1.75);}
+}
+
+@keyframes glowPulse {
+  0% {opacity:0.05;}
+  50% {opacity:0.12;}
+  100% {opacity:0.05;}
+}
+
+/* ===== SHOP UI ===== */
 .card{
   background:#222;
   padding:15px;
   border-radius:10px;
+  max-width:300px;
+  margin:auto;
 }
 
-/* ================= IMAGE ================= */
-img{
-  width:100%;
-  border-radius:10px;
+img{width:100%;border-radius:10px;}
+
+a{
+  display:inline-block;
+  margin-top:15px;
+  padding:10px 20px;
+  background:#fff;
+  color:#111;
+  text-decoration:none;
+  font-weight:bold;
 }
 
-/* ================= SIZE ================= */
+/* 🔥 TAMBAHAN SIZE */
 .size{
   width:100%;
   padding:10px;
   margin-top:10px;
   border-radius:5px;
   border:none;
-}
-
-/* ================= BUTTON ================= */
-button{
-  margin-top:10px;
-  padding:10px;
-  width:100%;
-  background:#fff;
-  color:#111;
-  border:none;
-  font-weight:bold;
-  cursor:pointer;
 }
 
 </style>
@@ -65,45 +110,36 @@ button{
 
 <h2>SHOP</h2>
 
-<div class="products">
+<div class="card">
+  <img src="1777183184183.png">
+  <h3>T-SHIRT FVCK STUPID POOR</h3>
+  <p>Rp110.000</p>
 
-  <!-- PRODUK 1 -->
-  <div class="card">
+  <!-- 🔥 SIZE -->
+  <select id="size" class="size">
+    <option value="">Pilih Size</option>
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+  </select>
 
-    <img src="1777183184183.png">
-
-    <h3>T-SHIRT FVCK STUPID POOR</h3>
-    <p>Rp110.000</p>
-
-    <!-- SIZE -->
-    <select class="size">
-      <option value="">Pilih Size</option>
-      <option value="S">S</option>
-      <option value="M">M</option>
-      <option value="L">L</option>
-      <option value="XL">XL</option>
-    </select>
-
-    <!-- ORDER -->
-    <button onclick="orderProduct(this)">
-      ORDER
-    </button>
-
-  </div>
-
+  <!-- 🔥 ORDER -->
+  <a href="#" onclick="orderNow()">
+    ORDER
+  </a>
 </div>
 
 <script>
-function orderProduct(btn){
-  let card = btn.parentElement;
-  let size = card.querySelector(".size").value;
+function orderNow(){
+  let size = document.getElementById("size").value;
 
   if(size === ""){
     alert("Pilih size dulu bro!");
     return;
   }
 
-  let product = "T-SHIRT FVCK STUPID POOR";
+  let product = "T-SHIRT";
   let price = "110000";
   let img = "1777183184183.png";
 
