@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -8,136 +7,110 @@
 
 <style>
 
-/* 🔥 RESET */
-html, body {
-  height: 100%;
+/* ================= BASE ================= */
+body{
   margin:0;
   background:#111;
   color:#fff;
   font-family:sans-serif;
   text-align:center;
   padding:30px;
-  overflow-x:hidden;
 }
 
-/* 🔥 KONTEN DI ATAS BACKGROUND */
-.card, h2, h3, p, a{
-  position:relative;
-  z-index:1;
+/* ================= GRID ================= */
+.products{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
 }
 
-/* =========================
-   🔥 LOGO WATERMARK UTAMA
-========================= */
-body::before{
-  content:"";
-  position:fixed;
-  top:50%;
-  left:50%;
-  width:500px;
-  height:500px;
-
-  transform:translate(-50%,-50%);
-
-  background:url("file_000000003b68720ba18667b200b70917.png") no-repeat center;
-  background-size:contain;
-
-  opacity:0.22;
-  pointer-events:none;
-  z-index:0;
-
-  animation: floatLogo 3.5s ease-in-out infinite;
-}
-
-/* =========================
-   🔥 GLOW PREMIUM
-========================= */
-body::after{
-  content:"";
-  position:fixed;
-  top:50%;
-  left:50%;
-  width:520px;
-  height:520px;
-
-  transform:translate(-50%,-50%);
-
-  background:url("file_000000003b68720ba18667b200b70917.png") no-repeat center;
-  background-size:contain;
-
-  opacity:0.10;
-  filter: blur(18px);
-  pointer-events:none;
-  z-index:0;
-
-  animation: glowPulse 3.5s ease-in-out infinite;
-}
-
-/* =========================
-   🔥 ANIMASI FLOAT
-========================= */
-@keyframes floatLogo {
-  0%   { transform:translate(-50%,-50%) scale(1.75); }
-  50%  { transform:translate(-50%,-55%) scale(2.5); }
-  100% { transform:translate(-50%,-50%) scale(1.75); }
-}
-
-/* =========================
-   🔥 ANIMASI GLOW
-========================= */
-@keyframes glowPulse {
-  0%   { opacity:0.05; }
-  50%  { opacity:0.12; }
-  100% { opacity:0.05; }
-}
-
-/* =========================
-   🔥 SHOP UI
-========================= */
+/* ================= CARD ================= */
 .card{
   background:#222;
   padding:15px;
   border-radius:10px;
-  max-width:400px;
-  margin:auto;
 }
 
+/* ================= IMAGE ================= */
 img{
   width:100%;
   border-radius:10px;
 }
 
-a{
-  display:inline-block;
-  margin-top:15px;
-  padding:10px 20px;
+/* ================= SIZE ================= */
+.size{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+  border-radius:5px;
+  border:none;
+}
+
+/* ================= BUTTON ================= */
+button{
+  margin-top:10px;
+  padding:10px;
+  width:100%;
   background:#fff;
   color:#111;
-  text-decoration:none;
+  border:none;
   font-weight:bold;
+  cursor:pointer;
 }
 
 </style>
-
 </head>
 
 <body>
 
 <h2>SHOP</h2>
 
-<div class="card">
+<div class="products">
 
-  <img src="1777183184183.png">
+  <!-- PRODUK 1 -->
+  <div class="card">
 
-  <h3>T-SHIRT FVCK STUPID POOR</h3>
-  <p>Rp110.000</p>
+    <img src="1777183184183.png">
 
-  <!-- 🔥 FLOW -->
-  <a href="shipping.html?product=T-SHIRT FVCK STUPID POOR&price=110000&img=1777183184183.png">
-    ORDER
-  </a>
+    <h3>T-SHIRT FVCK STUPID POOR</h3>
+    <p>Rp110.000</p>
+
+    <!-- SIZE -->
+    <select class="size">
+      <option value="">Pilih Size</option>
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+    </select>
+
+    <!-- ORDER -->
+    <button onclick="orderProduct(this)">
+      ORDER
+    </button>
+
+  </div>
 
 </div>
+
+<script>
+function orderProduct(btn){
+  let card = btn.parentElement;
+  let size = card.querySelector(".size").value;
+
+  if(size === ""){
+    alert("Pilih size dulu bro!");
+    return;
+  }
+
+  let product = "T-SHIRT FVCK STUPID POOR";
+  let price = "110000";
+  let img = "1777183184183.png";
+
+  window.location.href =
+    `shipping.html?product=${product}&price=${price}&img=${img}&size=${size}`;
+}
+</script>
 
 </body>
 </html>
