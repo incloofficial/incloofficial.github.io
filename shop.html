@@ -176,7 +176,17 @@ const images = [
 let current = 0;
 
 function showSlide(){
+
   document.getElementById("slide").src = images[current];
+
+  if(current == 0){
+    document.getElementById("photoLabel").innerText = "DEPAN";
+  }
+
+  if(current == 1){
+    document.getElementById("photoLabel").innerText = "BELAKANG";
+  }
+
 }
 
 function nextSlide(){
