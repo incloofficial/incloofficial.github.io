@@ -134,6 +134,22 @@ a{
   border:none;
 }
   
+  .dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.4);
+  display:inline-block;
+  margin:0 4px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.dot.active{
+  background:#fff;
+  transform:scale(1.3);
+}
+  
   #photoLabel{
   margin-top:10px;
   font-size:13px;
@@ -159,8 +175,8 @@ a{
 
   <!-- ===== NAV ===== -->
   <div class="nav">
-    <button onclick="prevSlide()">‹</button>
-    <button onclick="nextSlide()">›</button>
+  <span class="dot" onclick="goSlide(0)"></span>
+  <span class="dot" onclick="goSlide(1)"></span>
   </div>
 
   <h3>T-SHIRT "EYE ON HAND"</h3>
@@ -194,41 +210,36 @@ const images = [
 let current = 0;
 
 function showSlide(){
-
   document.getElementById("slide").src = images[current];
 
   if(current == 0){
     document.getElementById("photoLabel").innerText = "DEPAN";
-  }
-
-  if(current == 1){
+  } else {
     document.getElementById("photoLabel").innerText = "BELAKANG";
   }
 
+  updateDots();
 }
 
-function nextSlide(){
-
-  current++;
-
-  if(current >= images.length){
-    current = 0;
-  }
-
+function goSlide(index){
+  current = index;
   showSlide();
 }
 
-function prevSlide(){
+function updateDots(){
+  let dots = document.querySelectorAll(".dot");
 
-  current--;
-
-  if(current < 0){
-    current = images.length - 1;
-  }
-
-  showSlide();
+  dots.forEach((dot, i) => {
+    dot.classList.remove("active");
+    if(i === current){
+      dot.classList.add("active");
+    }
+  });
 }
 
+// init
+showSlide();
+  
 /* ===== ORDER ===== */
 
 function orderNow(){
