@@ -81,21 +81,46 @@ button{
 
 <h2>SHIPPING</h2>
 
-<form action="payment.html">
+<form onsubmit="goPayment(event)">
 
-  <input type="text" placeholder="Nama" required>
-  <input type="text" placeholder="No HP" required>
-  <input type="text" placeholder="Alamat" required>
+  <input type="text" id="name" placeholder="Nama" required>
 
-  <select>
-    <option>JNE</option>
-    <option>J&T</option>
-    <option>Shopee Express</option>
-  </select>
+<input type="text" id="phone" placeholder="No HP" required>
+
+<input type="text" id="address" placeholder="Alamat" required>
+
+<select id="courier">
+  <option>JNE</option>
+  <option>J&T</option>
+  <option>Shopee Express</option>
+</select>
+  
 
   <button type="submit">LANJUT PAYMENT</button>
 
 </form>
+<script>
+function goPayment(event){
+  event.preventDefault();
 
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let address = document.getElementById("address").value;
+  let courier = document.getElementById("courier").value;
+
+  let data = {
+    name: name,
+    phone: phone,
+    address: address,
+    courier: courier
+  };
+
+  // simpan ke browser
+  localStorage.setItem("shipping", JSON.stringify(data));
+
+  // pindah ke payment
+  window.location.href = "payment.html";
+}
+</script>
 </body>
 </html>
