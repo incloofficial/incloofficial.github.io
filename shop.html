@@ -269,6 +269,16 @@ function goSlide(index){
   showSlide();
 }
 
+function nextSlide(){
+  current = (current + 1) % images.length;
+  showSlide();
+}
+
+function prevSlide(){
+  current = (current - 1 + images.length) % images.length;
+  showSlide();
+}
+
 function updateDots(){
   let dots = document.querySelectorAll(".dot");
 
@@ -280,11 +290,7 @@ function updateDots(){
   });
 }
 
-/* ===== SAFE INIT ===== */
-window.onload = function(){
-  showSlide();
-};
-
+window.onload = showSlide;
 </script>
 </body>
 </html>
