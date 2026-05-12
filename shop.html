@@ -24,6 +24,11 @@ html, body {
   position:relative;
   z-index:1;
 }
+  .card button{
+  margin-top:15px;
+  padding:12px;
+  border-radius:8px;
+  }
 
 /* ===== LOGO ===== */
 body::before{
@@ -216,9 +221,8 @@ function orderNow(){
   }
 
   window.location.href =
-  `payment.html?product=${encodeURIComponent(product)}&size=${encodeURIComponent(size)}`;
+  `shipping.html?product=${encodeURIComponent(product)}&size=${encodeURIComponent(size)}`;
 }
-
 /* ===== SLIDER ===== */
 
 const images = [
