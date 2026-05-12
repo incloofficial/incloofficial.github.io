@@ -79,26 +79,51 @@ button{
 
 <body>
 
-<h2>SHIPPING</h2>
+<h2 class="title">Checkout</h2>
+
+<div class="stepbar">
+  <span class="step active">Cart</span>
+  <span class="step active">Shipping</span>
+  <span class="step">Payment</span>
+</div>
+
+<div class="card summary">
+  <h3>🛍 Order Summary</h3>
+
+  <p>Product: <span id="pname">-</span></p>
+  <p>Size: <span id="psize">-</span></p>
+
+  <hr>
+
+  <p><b>Total: Rp120.000</b></p>
+</div>
 
 <form onsubmit="goPayment(event)">
 
-  <input type="text" id="name" placeholder="Nama" required>
+<div class="card">
 
-<input type="text" id="phone" placeholder="No HP" required>
+  <h3>🚚 Shipping Details</h3>
 
-<input type="text" id="address" placeholder="Alamat" required>
+  <input type="text" id="name" placeholder="Nama Lengkap" required>
+  <input type="text" id="phone" placeholder="No WhatsApp" required>
+  <input type="text" id="address" placeholder="Alamat Lengkap" required>
 
-<select id="courier">
-  <option>JNE</option>
-  <option>J&T</option>
-  <option>Shopee Express</option>
-</select>
-  
+  <select id="courier" required>
+    <option value="">Pilih Kurir</option>
+    <option>JNE</option>
+    <option>J&T</option>
+    <option>Shopee Express</option>
+  </select>
 
-  <button type="submit">LANJUT PAYMENT</button>
+  <button type="submit">
+    Continue to Payment
+  </button>
+
+</div>
 
 </form>
+
+  
 <script>
 
 function goPayment(event){
