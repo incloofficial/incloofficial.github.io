@@ -95,6 +95,7 @@ h2{
   font-weight:bold;
   margin-top:15px;
   cursor:pointer;
+  text-decoration:none;
 }
 
 .qr{
@@ -119,13 +120,44 @@ h2{
     KONFIRMASI ORDER
   </button>
 
+  <a id="waBtn" target="_blank" class="btn">
+  KIRIM BUKTI PEMBAYARAN
+  </a>
+
 </div>
 
 <script>
+
+const params = new URLSearchParams(window.location.search);
+
+const product = params.get("product");
+const size = params.get("size");
+const price = params.get("price");
+
+/* ===== WHATSAPP ===== */
+
+const adminNumber = "6289666846125";
+
+const message =
+`Halo admin INCLO, saya sudah melakukan pembayaran.
+
+Detail Order:
+Produk: ${product}
+Size: ${size}
+Harga: Rp.${price}
+
+Saya ingin mengirim bukti pembayaran.`;
+
+document.getElementById("waBtn").href =
+`https://wa.me/${adminNumber}?text=${encodeURIComponent(message)}`;
+
+/* ===== FINISH ===== */
+
 function finishOrder(){
   alert("Order berhasil dibuat!");
   window.location.href = "index.html";
 }
+
 </script>
 
 </body>
