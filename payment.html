@@ -115,6 +115,8 @@ h2{
 
   <p>scan QRIS:</p>
   <img class="qr" src="no_markReactNative-snapshot-image_0.png" alt="QRIS">
+  
+  <div id="info"></div>
 
   <button class="btn" onclick="finishOrder()">
     KONFIRMASI ORDER
@@ -127,22 +129,40 @@ h2{
 
 const params = new URLSearchParams(window.location.search);
 
-const product = params.get("product");
-const size = params.get("size");
-const price = params.get("price");
+const product = params.get("product") || "-";
+const size = params.get("size") || "-";
+const name = params.get("name") || "-";
+const phone = params.get("phone") || "-";
+const address = params.get("address") || "-";
+const courier = params.get("courier") || "-";
+
+/* tampilkan di halaman */
+document.getElementById("info").innerHTML =
+`
+<p>Produk: ${product}</p>
+<p>Size: ${size}</p>
+<p>Nama: ${name}</p>
+<p>No HP: ${phone}</p>
+<p>Alamat: ${address}</p>
+<p>Kurir: ${courier}</p>
+`;
 
 function finishOrder(){
 
   const message =
 `Halo admin INCLO
 
-Saya ingin konfirmasi order:
+📦 KONFIRMASI ORDER
 
-Produk: ${pilihart}
-Size: ${pilihsize}
-kirim bukti transfer 
+Produk: ${product}
+Size: ${size}
 
-Mohon diproses ya 🙏`;
+👤 Nama: ${name}
+📱 HP: ${phone}
+🏠 Alamat: ${address}
+🚚 Kurir: ${courier}
+
+📸 Mohon kirim bukti transfer ya 🙏`;
 
   const adminNumber = "6289666846125";
 
