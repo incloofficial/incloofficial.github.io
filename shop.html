@@ -82,7 +82,29 @@ body::after{
   margin:auto;
 }
 
-img{width:100%;border-radius:10px;}
+/* ===== SLIDER ===== */
+.slider img{
+  width:100%;
+  border-radius:10px;
+  transition:0.3s;
+}
+
+.nav{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:10px;
+}
+
+.nav button{
+  padding:8px 15px;
+  border:none;
+  border-radius:5px;
+  background:white;
+  color:black;
+  font-size:18px;
+  cursor:pointer;
+}
 
 a{
   display:inline-block;
@@ -94,7 +116,7 @@ a{
   font-weight:bold;
 }
 
-/* 🔥 TAMBAHAN SIZE */
+/* ===== SIZE ===== */
 .size{
   width:100%;
   padding:10px;
@@ -111,11 +133,22 @@ a{
 <h2>SHOP</h2>
 
 <div class="card">
-  <img src="front_eyeonhand.png">
+
+  <!-- ===== SLIDER ===== -->
+  <div class="slider">
+    <img id="slide" src="front_eyeonhand.png">
+  </div>
+
+  <!-- ===== NAV ===== -->
+  <div class="nav">
+    <button onclick="prevSlide()">‹</button>
+    <button onclick="nextSlide()">›</button>
+  </div>
+
   <h3>T-SHIRT "EYE ON HAND"</h3>
   <p>Rp120.000</p>
 
-  <!-- 🔥 SIZE -->
+  <!-- ===== SIZE ===== -->
   <select id="size" class="size">
     <option value="">Pilih Size</option>
     <option value="S">S</option>
@@ -124,14 +157,54 @@ a{
     <option value="XL">XL</option>
   </select>
 
-  <!-- 🔥 ORDER -->
+  <!-- ===== ORDER ===== -->
   <a href="#" onclick="orderNow()">
     ORDER
   </a>
+
 </div>
 
 <script>
+
+/* ===== SLIDER ===== */
+
+const images = [
+  "front_eyeonhand.png",
+  "back_eyeonhand.png"
+];
+
+let current = 0;
+
+function showSlide(){
+  document.getElementById("slide").src = images[current];
+}
+
+function nextSlide(){
+
+  current++;
+
+  if(current >= images.length){
+    current = 0;
+  }
+
+  showSlide();
+}
+
+function prevSlide(){
+
+  current--;
+
+  if(current < 0){
+    current = images.length - 1;
+  }
+
+  showSlide();
+}
+
+/* ===== ORDER ===== */
+
 function orderNow(){
+
   let size = document.getElementById("size").value;
 
   if(size === ""){
@@ -141,11 +214,12 @@ function orderNow(){
 
   let product = "T-SHIRT EYE ON HAND";
   let price = "120.000";
-  let img = "front_eyeonhand.png";
+  let img = image [front_eyeonhand.png];
 
   window.location.href =
-    `shipping.html?product=${product}&price=${price}&img=${img}&size=${size}`;
+  `shipping.html?product=${encodeURIComponent(product)}&price=${price}&img=${img}&size=${size}`;
 }
+
 </script>
 
 </body>
