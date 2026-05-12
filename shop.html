@@ -196,13 +196,28 @@ a{
   </select>
 
   <!-- ===== ORDER ===== -->
-  <a href="#" onclick="orderNow()">
-    ORDER
-  </a>
+  <button onclick="orderNow()">
+  ORDER
+  </button>
 
 </div>
 
 <script>
+
+/* ===== ORDER ===== */
+function orderNow(){
+
+  let product = "T-SHIRT EYE ON HAND";
+  let size = document.getElementById("size").value;
+
+  if(size === ""){
+    alert("Pilih size dulu");
+    return;
+  }
+
+  window.location.href =
+  `payment.html?product=${encodeURIComponent(product)}&size=${encodeURIComponent(size)}`;
+}
 
 /* ===== SLIDER ===== */
 
@@ -216,11 +231,8 @@ let current = 0;
 function showSlide(){
   document.getElementById("slideImage").src = images[current];
 
-  if(current == 0){
-    document.getElementById("photoLabel").innerText = "DEPAN";
-  } else {
-    document.getElementById("photoLabel").innerText = "BELAKANG";
-  }
+  document.getElementById("photoLabel").innerText =
+    current === 0 ? "DEPAN" : "BELAKANG";
 
   updateDots();
 }
@@ -241,29 +253,11 @@ function updateDots(){
   });
 }
 
-// init
-showSlide();
-  
-/* ===== ORDER ===== */
-
-function orderNow(){
-
-  let size = document.getElementById("size").value;
-
-  if(size === ""){
-    alert("Pilih Size");
-    return;
-  }
-
-  let product = "T-SHIRT EYE ON HAND";
-  let price = 120000;
-  let img = "front_eyeonhand.png";
-
-  window.location.href =
-  `shipping.html?product=${encodeURIComponent(product)}&price=${price}&img=${encodeURIComponent(img)}&size=${size}`;
-}
+/* ===== SAFE INIT ===== */
+window.onload = function(){
+  showSlide();
+};
 
 </script>
-
 </body>
 </html>
