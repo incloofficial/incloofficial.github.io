@@ -135,13 +135,13 @@ function orderNow(){
   let size = document.getElementById("size").value;
 
   if(size === ""){
-    alert("Pilih size dulu bro!");
+    alert("Pilih Size");
     return;
   }
 
-  let product = "T-SHIRT";
-  let price = "110000";
-  let img = "1777183184183.png";
+  let product = "T-SHIRT EYE ON HAND";
+  let price = "120.000";
+  let img = "front_eyeonhand.png";
 
   window.location.href =
     `shipping.html?product=${product}&price=${price}&img=${img}&size=${size}`;
