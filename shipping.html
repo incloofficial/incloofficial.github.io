@@ -125,6 +125,20 @@ button{
 
   
 <script>
+window.onload = function(){
+
+  const params = new URLSearchParams(window.location.search);
+
+  let product = params.get("product") || "-";
+  let size = params.get("size") || "-";
+
+  document.getElementById("pname").innerText = product;
+  document.getElementById("psize").innerText = size;
+
+}
+</script>
+  
+<script>
 
 function goPayment(event){
   event.preventDefault();
