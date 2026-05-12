@@ -44,8 +44,8 @@ header{
   100% {filter:drop-shadow(0 0 10px rgba(255,255,255,0.15));}
 }
 .header-hero{
-  font-family:'Anton';
-  font-size:clamp(40px,8vw,80px);
+  letter-spacing:3px;
+  text-transform:uppercase;
 }
 
 .hero-subtitle{
@@ -57,15 +57,20 @@ header{
 .btn{
   background:#fff;
   color:#111;
-  padding:12px 30px;
+  padding:12px 32px;
   text-decoration:none;
   font-weight:600;
+  letter-spacing:1px;
+  border-radius:8px;
   transition:.3s;
+  box-shadow:0 8px 20px rgba(0,0,0,0.3);
 }
 
 .btn:hover{
   background:#C8102E;
   color:#fff;
+  transform:scale(1.08);
+  box-shadow:0 12px 30px rgba(200,16,46,0.4);
 }
 
   header::before{
