@@ -3,61 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shop - INCLO</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+<title>SHOP - INCLO</title>
+
 <style>
 
-/* ===== BASE ===== */
-html, body{
+/* ===== BODY ===== */
+
+body{
   margin:0;
-  font-family:'Poppins',sans-serif;
   background:url("183598_dark.jpg") no-repeat center center fixed;
   background-size:cover;
+  font-family:sans-serif;
   color:#fff;
   text-align:center;
   padding:30px;
   overflow-x:hidden;
   position:relative;
 }
-  body::before{
+
+/* ===== OVERLAY ===== */
+
+body::before{
   content:"";
   position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
+  inset:0;
   background:rgba(0,0,0,0.65);
   z-index:0;
-  }
-  body *{
-  position:relative;
-  z-index:1;
-  }
-
-/* ===== CONTENT ABOVE BG ===== */
-.card, h1, h2, h3, p, a, input, select, button{
-  position:relative;
-  z-index:1;
-}
-  .card button{
-  width:100%;
-  padding:12px;
-  margin-top:12px;
-  border:none;
-  border-radius:10px;
-  background:#ffcc00;
-  color:#111;
-  font-weight:700;
-  cursor:pointer;
-  transition:0.2s;
 }
 
-.card button:hover{
-  transform:scale(1.05);
-}
+/* ===== GLOW LOGO ===== */
 
-/* ===== LOGO ===== */
-body::before{
+body::after{
   content:"";
   position:fixed;
   top:50%;
@@ -67,84 +44,101 @@ body::before{
   transform:translate(-50%,-50%);
   background:url("file_000000003b68720ba18667b200b70917.png") no-repeat center;
   background-size:contain;
-  opacity:0.22;
+  opacity:0.08;
+  filter:blur(18px);
   pointer-events:none;
   z-index:0;
-  animation: floatLogo 3.5s ease-in-out infinite;
+  animation:floatLogo 4s ease-in-out infinite;
 }
 
-/* ===== GLOW ===== */
+body *{
+  position:relative;
+  z-index:1;
+}
 
+/* ===== ANIMATION ===== */
 
-/* ===== SHOP UI ===== */
+@keyframes floatLogo{
+  0%{
+    transform:translate(-50%,-50%) scale(1.7);
+  }
+
+  50%{
+    transform:translate(-50%,-53%) scale(2);
+  }
+
+  100%{
+    transform:translate(-50%,-50%) scale(1.7);
+  }
+}
+
+/* ===== CARD ===== */
+
 .card{
-  background:rgba(30,30,30,0.9);
-  border:1px solid rgba(255,255,255,0.05);
-  padding:18px;
-  border-radius:14px;
-  max-width:320px;
+  max-width:420px;
   margin:auto;
-  box-shadow:0 10px 25px rgba(0,0,0,0.5);
-  backdrop-filter: blur(6px);
+  background:rgba(15,15,15,0.82);
+  border-radius:18px;
+  padding:22px;
+  backdrop-filter:blur(6px);
+  box-shadow:0 10px 35px rgba(0,0,0,0.5);
+}
+
+/* ===== TITLE ===== */
+
+h2{
+  font-size:30px;
+  letter-spacing:4px;
+  margin-bottom:20px;
+}
+
+/* ===== PRE ORDER ===== */
+
+.preorder{
+  letter-spacing:2px;
+  font-size:20px;
+  color:#ffcc00;
+  margin-bottom:14px;
+  text-transform:uppercase;
+  animation:pulseText 2.5s infinite;
+}
+
+@keyframes pulseText{
+  0%{opacity:0.6;}
+  50%{opacity:1;}
+  100%{opacity:0.6;}
 }
 
 /* ===== SLIDER ===== */
+
+.slider{
+  width:100%;
+  overflow:hidden;
+  border-radius:14px;
+}
+
 .slider img{
   width:100%;
-  max-height:450px;
-  object-fit:cover;
   border-radius:14px;
   transition:0.4s ease;
-  opacity:1;
-  transform:scale(1);
-  box-shadow:0 15px 35px rgba(0,0,0,0.6);
 }
-.nav{
-  display:flex;
-  justify-content:center;
-  gap:10px;
+
+/* ===== PHOTO LABEL ===== */
+
+#photoLabel{
   margin-top:12px;
+  font-size:13px;
+  letter-spacing:2px;
+  opacity:0.7;
 }
 
-.nav button{
-  padding:10px 14px;
-  border:none;
-  border-radius:8px;
-  background:#fff;
-  color:#111;
-  font-size:18px;
-  cursor:pointer;
-  transition:0.25s ease;
-  box-shadow:0 4px 10px rgba(0,0,0,0.3);
+/* ===== DOT ===== */
+
+.nav{
+  margin-top:14px;
 }
 
-.nav button:hover{
-  transform:scale(1.12);
-  background:#eaeaea;
-}
-
-a{
-  display:inline-block;
-  margin-top:15px;
-  padding:10px 20px;
-  background:#fff;
-  color:#111;
-  text-decoration:none;
-  font-weight:bold;
-}
-
-/* ===== SIZE ===== */
-.size{
-  width:100%;
-  padding:10px;
-  margin-top:10px;
-  border-radius:8px;
-  border:none;
-  background:#1a1a1a;
-  color:#fff;
-}
-  
-  .dot{
+.dot{
   width:8px;
   height:8px;
   border-radius:50%;
@@ -159,67 +153,79 @@ a{
   background:#fff;
   transform:scale(1.3);
 }
-  
-  #photoLabel{
-  margin-top:10px;
-  font-size:13px;
-  letter-spacing:2px;
-  opacity:0.7;
-  }
 
-  h2{
-  font-family:'Bebas Neue', sans-serif;
-  font-size:28px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  }
-  .preorder{
-  font-family:'Bebas Neue', sans-serif;
-  letter-spacing:2px;
-  font-size:20px;
-  color:#ffcc00;
-  margin-bottom:12px;
-  text-transform:uppercase;
-  animation:pulseText 2.5s infinite;
+/* ===== PRODUCT ===== */
+
+h3{
+  margin-top:20px;
+  letter-spacing:1px;
 }
 
-@keyframes pulseText{
-  0%{opacity:0.6;}
-  50%{opacity:1;}
-  100%{opacity:0.6;}
+/* ===== SIZE ===== */
+
+.size{
+  width:100%;
+  padding:12px;
+  margin-top:12px;
+  border:none;
+  border-radius:10px;
+  background:#1a1a1a;
+  color:#fff;
+  outline:none;
 }
-  
+
+/* ===== BUTTON ===== */
+
+button{
+  width:100%;
+  padding:14px;
+  margin-top:16px;
+  border:none;
+  border-radius:10px;
+  background:#fff;
+  color:#111;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.25s ease;
+}
+
+button:hover{
+  transform:scale(1.03);
+  background:#eaeaea;
+}
 
 </style>
 </head>
-  
 
-  
 <body>
 
 <h2>SHOP</h2>
 
 <div class="card">
-  <p class="preorder">OPEN PRE-ORDER<br>25 Mei - 5 Juni</p>
 
-  <!-- ===== SLIDER ===== -->
+  <p class="preorder">
+    OPEN PRE-ORDER<br>
+    25 Mei - 5 Juni
+  </p>
+
+  <!-- SLIDER -->
   <div class="slider">
-  <img id="slideImage" src="front_eyeonhand.png">
+    <img id="slideImage" src="front_eyeonhand.png">
   </div>
 
   <p id="photoLabel">DEPAN</p>
 
-
-  <!-- ===== NAV ===== -->
+  <!-- DOT -->
   <div class="nav">
-  <span class="dot" onclick="goSlide(0)"></span>
-  <span class="dot" onclick="goSlide(1)"></span>
+    <span class="dot" onclick="goSlide(0)"></span>
+    <span class="dot" onclick="goSlide(1)"></span>
   </div>
 
   <h3>T-SHIRT "EYE ON HAND"</h3>
+
   <p>Rp120.000</p>
 
-  <!-- ===== SIZE ===== -->
+  <!-- SIZE -->
   <select id="size" class="size">
     <option value="">Pilih Size</option>
     <option value="S">S</option>
@@ -228,9 +234,9 @@ a{
     <option value="XL">XL</option>
   </select>
 
-  <!-- ===== ORDER ===== -->
+  <!-- ORDER -->
   <button onclick="orderNow()">
-  ORDER
+    ORDER
   </button>
 
 </div>
@@ -238,6 +244,7 @@ a{
 <script>
 
 /* ===== ORDER ===== */
+
 function orderNow(){
 
   let product = "T-SHIRT EYE ON HAND";
@@ -251,6 +258,7 @@ function orderNow(){
   window.location.href =
   `shipping.html?product=${encodeURIComponent(product)}&size=${encodeURIComponent(size)}`;
 }
+
 /* ===== SLIDER ===== */
 
 const images = [
@@ -261,10 +269,11 @@ const images = [
 let current = 0;
 
 function showSlide(){
+
   document.getElementById("slideImage").src = images[current];
 
   document.getElementById("photoLabel").innerText =
-    current === 0 ? "DEPAN" : "BELAKANG";
+  current === 0 ? "DEPAN" : "BELAKANG";
 
   updateDots();
 }
@@ -274,31 +283,26 @@ function goSlide(index){
   showSlide();
 }
 
-function nextSlide(){
-  current = (current + 1) % images.length;
-  showSlide();
-}
-
-function prevSlide(){
-  current = (current - 1 + images.length) % images.length;
-  showSlide();
-}
-
 function updateDots(){
+
   let dots = document.querySelectorAll(".dot");
 
   dots.forEach((dot, i) => {
+
     dot.classList.remove("active");
+
     if(i === current){
       dot.classList.add("active");
     }
+
   });
 }
 
 window.onload = function(){
   showSlide();
-  updateDots();
 };
+
 </script>
+
 </body>
 </html>
