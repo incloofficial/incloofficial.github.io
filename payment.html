@@ -3,16 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Payment - INCLO</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
 <style>
 
-/* ================= BASE ================= */
+/* ===== BODY ===== */
+
 body{
   margin:0;
-  font-family:'Poppins',sans-serif;
   background:url("183598_dark.jpg") no-repeat center center fixed;
   background-size:cover;
+  font-family:sans-serif;
   color:#fff;
   text-align:center;
   padding:30px;
@@ -20,19 +24,18 @@ body{
   position:relative;
 }
 
-/* OVERLAY GELAP */
+/* ===== OVERLAY ===== */
+
 body::before{
   content:"";
   position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
+  inset:0;
   background:rgba(0,0,0,0.65);
   z-index:0;
 }
 
-/* LOGO GLOW */
+/* ===== GLOW LOGO ===== */
+
 body::after{
   content:"";
   position:fixed;
@@ -43,137 +46,125 @@ body::after{
   transform:translate(-50%,-50%);
   background:url("file_000000003b68720ba18667b200b70917.png") no-repeat center;
   background-size:contain;
-  opacity:0.10;
+  opacity:0.08;
   filter:blur(18px);
   pointer-events:none;
   z-index:0;
-  animation:floatLogo 3.5s ease-in-out infinite;
+  animation:floatLogo 4s ease-in-out infinite;
 }
 
-/* SEMUA KONTEN DI DEPAN */
 body *{
   position:relative;
   z-index:1;
 }
 
+/* ===== ANIMATION ===== */
+
 @keyframes floatLogo{
   0%{
-    transform:translate(-50%,-50%) scale(1.75);
+    transform:translate(-50%,-50%) scale(1.7);
   }
 
   50%{
-    transform:translate(-50%,-55%) scale(2.2);
+    transform:translate(-50%,-53%) scale(2);
   }
 
   100%{
-    transform:translate(-50%,-50%) scale(1.75);
+    transform:translate(-50%,-50%) scale(1.7);
   }
 }
 
-/* ================= FRONT LAYER ================= */
-.card, h1, h2, h3, p, button, a, img{
-  position:relative;
-  z-index:1;
-}
+/* ===== TITLE ===== */
 
-
-/* ================= UI ================= */
-.card{
-  background:#222;
-  padding:20px;
-  border-radius:10px;
-  max-width:400px;
-  margin:auto;
-}
-
-h2{
-  margin-bottom:20px;
-}
-
-.btn{
-  display:block;
-  width:100%;
-  padding:12px;
-  background:#fff;
-  color:#111;
-  border:none;
-  font-weight:bold;
-  margin-top:15px;
-  cursor:pointer;
-  text-decoration:none;
-}
-
-.qr{
-  width:100%;
-  border-radius:10px;
-  margin:15px 0;
-}
-  .title{
-  font-size:32px;
-  letter-spacing:2px;
+.title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:34px;
+  letter-spacing:4px;
   margin-bottom:5px;
+  text-shadow:0 0 15px rgba(255,255,255,0.08);
 }
-  .title{
-  text-shadow:0 0 15px rgba(255,255,255,0.1);
-  }
 
 .subtitle{
   font-size:13px;
   opacity:0.6;
-  margin-bottom:20px;
+  margin-bottom:25px;
+  letter-spacing:1px;
 }
 
-/* info box biar rapi */
-#info{
-  text-align:left;
-  background:rgba(255,255,255,0.05);
-  padding:12px;
-  border-radius:10px;
-  margin-top:10px;
-  font-size:14px;
-  line-height:1.6;
+/* ===== CARD ===== */
+
+.card{
+  max-width:420px;
+  margin:auto;
+  background:rgba(15,15,15,0.82);
+  border-radius:18px;
+  padding:22px;
+  backdrop-filter:blur(6px);
+  box-shadow:0 10px 35px rgba(0,0,0,0.5);
 }
 
-/* QR lebih premium */
+/* ===== QR ===== */
+
+.qr-label{
+  opacity:0.7;
+  font-size:13px;
+  letter-spacing:2px;
+  margin-bottom:12px;
+}
+
 .qr{
   width:100%;
   max-height:320px;
   object-fit:contain;
-  border-radius:12px;
+  border-radius:14px;
   box-shadow:0 10px 30px rgba(0,0,0,0.6);
 }
 
-/* tombol lebih mahal */
+/* ===== INFO BOX ===== */
+
+.info-box{
+  text-align:left;
+  background:rgba(255,255,255,0.05);
+  padding:16px;
+  border-radius:14px;
+  margin-top:18px;
+  line-height:1.7;
+  font-size:13px;
+}
+
+.info-box p{
+  margin:12px 0;
+}
+
+.info-box b{
+  font-size:11px;
+  opacity:0.6;
+  letter-spacing:2px;
+}
+
+/* ===== BUTTON ===== */
+
 .btn{
+  width:100%;
+  padding:14px;
+  margin-top:20px;
+  border:none;
+  border-radius:12px;
   background:#fff;
   color:#111;
-  border-radius:8px;
-  transition:0.2s;
+  font-weight:800;
+  letter-spacing:1px;
+  cursor:pointer;
+  transition:0.25s ease;
 }
 
 .btn:hover{
   transform:scale(1.03);
-}
-  .info-box{
-  text-align:left;
-  background:rgba(255,255,255,0.06);
-  padding:15px;
-  border-radius:12px;
-  margin-top:15px;
-  line-height:1.6;
-  font-size:13px;
-  letter-spacing:0.5px;
+  background:#ececec;
 }
 
-.info-box p{
-  margin:10px 0;
-}
-
-.info-box b{
-  color:#fff;
-  opacity:0.6;
-  font-size:11px;
-  letter-spacing:2px;
+.btn:active{
+  transform:scale(0.98);
 }
 
 </style>
@@ -181,64 +172,114 @@ h2{
 
 <body>
 
-<h2 class="title">PAYMENT CONFIRMATION</h2>
-<p class="subtitle">Complete your payment to process your order</p>
+<h2 class="title">PAYMENT</h2>
+
+<p class="subtitle">
+Complete your payment to process your order
+</p>
 
 <div class="card">
 
-  <p>scan QRIS:</p>
-  <img class="qr" src="no_markReactNative-snapshot-image_0.png" alt="QRIS">
-  
+  <p class="qr-label">
+    SCAN QRIS
+  </p>
+
+  <img
+    class="qr"
+    src="no_markReactNative-snapshot-image_0.png"
+    alt="QRIS"
+  >
+
   <div id="info"></div>
 
-  <button class="btn" onclick="finishOrder()">
+  <button
+    class="btn"
+    onclick="finishOrder()"
+  >
     KONFIRMASI ORDER
   </button>
-
 
 </div>
 
 <script>
 
+/* ===== GET PARAMS ===== */
+
 const params = new URLSearchParams(window.location.search);
 
 const product = params.get("product") || "-";
+
 const size = params.get("size") || "-";
+
 const name = params.get("name") || "-";
+
 const phone = params.get("phone") || "-";
+
 const address = params.get("address") || "-";
+
 const courier = params.get("courier") || "-";
 
-/* tampilkan di halaman */
+/* ===== SHOW INFO ===== */
+
 document.getElementById("info").innerHTML =
+
 `
 <div class="info-box">
-  <p><b>PRODUCT</b><br>${product}</p>
-  <p><b>SIZE</b><br>${size}</p>
-  <p><b>NAME</b><br>${name}</p>
-  <p><b>PHONE</b><br>${phone}</p>
-  <p><b>ADDRESS</b><br>${address}</p>
-  <p><b>COURIER</b><br>${courier}</p>
+
+  <p>
+    <b>PRODUCT</b><br>
+    ${product}
+  </p>
+
+  <p>
+    <b>SIZE</b><br>
+    ${size}
+  </p>
+
+  <p>
+    <b>NAME</b><br>
+    ${name}
+  </p>
+
+  <p>
+    <b>PHONE</b><br>
+    ${phone}
+  </p>
+
+  <p>
+    <b>ADDRESS</b><br>
+    ${address}
+  </p>
+
+  <p>
+    <b>COURIER</b><br>
+    ${courier}
+  </p>
+
 </div>
 `;
+
+/* ===== WHATSAPP ===== */
+
 function finishOrder(){
 
   const message =
-`Halo admin INCLOOFFICIAL 
 
- KONFIRMASI ORDER
+`Halo admin INCLOOFFICIAL
+
+KONFIRMASI ORDER
 
 Produk: ${product}
 Size: ${size}
 
- Nama: ${name}
- HP: ${phone}
- Alamat: ${address}
- Kurir: ${courier}
+Nama: ${nama}
+HP: ${nomor}
+Alamat: ${alamat}
+Kurir: ${ekspedisi}
 
-*❗Mohon kirim bukti Pembayaran❗*
+❗Mohon kirim bukti pembayaran❗
 
-_🔥Thanks for Buying🔥_`;
+🔥 Thanks for Buying 🔥`;
 
   const adminNumber = "6289666846125";
 
