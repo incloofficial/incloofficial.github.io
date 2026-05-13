@@ -8,16 +8,31 @@
 <style>
 
 /* ===== BASE ===== */
-html, body {
-  height: 100%;
+html, body{
   margin:0;
-  background:#111;
+  font-family:'Poppins',sans-serif;
+  background:url("183598_dark.jpg") no-repeat center center fixed;
+  background-size:cover;
   color:#fff;
-  font-family:'Poppins', sans-serif;
   text-align:center;
   padding:30px;
   overflow-x:hidden;
+  position:relative;
 }
+  body::before{
+  content:"";
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.65);
+  z-index:0;
+  }
+  body *{
+  position:relative;
+  z-index:1;
+  }
 
 /* ===== CONTENT ABOVE BG ===== */
 .card, h1, h2, h3, p, a, input, select, button{
@@ -59,35 +74,7 @@ body::before{
 }
 
 /* ===== GLOW ===== */
-body::after{
-  content:"";
-  position:fixed;
-  top:50%;
-  left:50%;
-  width:520px;
-  height:520px;
-  transform:translate(-50%,-50%);
-  background:url("file_000000003b68720ba18667b200b70917.png") no-repeat center;
-  background-size:contain;
-  opacity:0.10;
-  filter: blur(18px);
-  pointer-events:none;
-  z-index:0;
-  animation: glowPulse 3.5s ease-in-out infinite;
-}
 
-/* ===== ANIMATION ===== */
-@keyframes floatLogo {
-  0% {transform:translate(-50%,-50%) scale(1.75);}
-  50% {transform:translate(-50%,-55%) scale(2.2);}
-  100% {transform:translate(-50%,-50%) scale(1.75);}
-}
-
-@keyframes glowPulse {
-  0% {opacity:0.05;}
-  50% {opacity:0.12;}
-  100% {opacity:0.05;}
-}
 
 /* ===== SHOP UI ===== */
 .card{
