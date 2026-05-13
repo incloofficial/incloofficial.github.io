@@ -267,23 +267,16 @@ hr{
 
 <script>
 
-/* ===== LOAD PRODUCT ===== */
-
 window.onload = function(){
 
   const params = new URLSearchParams(window.location.search);
 
-  let product = params.get("product") || "-";
-
-  let size = params.get("size") || "-";
+  const product = params.get("product") || "-";
+  const size = params.get("size") || "-";
 
   document.getElementById("pname").innerText = product;
-
   document.getElementById("psize").innerText = size;
-
-}
-
-/* ===== GO PAYMENT ===== */
+};
 
 function goPayment(event){
 
@@ -291,28 +284,26 @@ function goPayment(event){
 
   const params = new URLSearchParams(window.location.search);
 
-  let product = params.get("product");
+  const product = params.get("product") || "";
+  const size = params.get("size") || "";
 
-  let size = params.get("size");
+  const name = document.getElementById("name").value;
+  const phone = document.getElementById("phone").value;
+  const address = document.getElementById("address").value;
+  const courier = document.getElementById("courier").value;
 
-  let name = document.getElementById("nama").value;
-
-  let phone = document.getElementById("nomor").value;
-
-  let address = document.getElementById("alamat").value;
-
-  let courier = document.getElementById("ekspedisi").value;
-
-  if(courier === ""){
-
-    alert("Pilih kurir dulu");
-
+  if(
+    name === "" ||
+    phone === "" ||
+    address === "" ||
+    courier === ""
+  ){
+    alert("Lengkapi data dulu");
     return;
   }
 
   window.location.href =
   `payment.html?product=${encodeURIComponent(product)}&size=${encodeURIComponent(size)}&name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}&courier=${encodeURIComponent(courier)}`;
-
 }
 
 </script>
