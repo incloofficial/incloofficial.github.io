@@ -103,13 +103,81 @@ h2{
   border-radius:10px;
   margin:15px 0;
 }
+  .title{
+  font-size:32px;
+  letter-spacing:2px;
+  margin-bottom:5px;
+}
+  .title{
+  text-shadow:0 0 15px rgba(255,255,255,0.1);
+  }
+
+.subtitle{
+  font-size:13px;
+  opacity:0.6;
+  margin-bottom:20px;
+}
+
+/* info box biar rapi */
+#info{
+  text-align:left;
+  background:rgba(255,255,255,0.05);
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  font-size:14px;
+  line-height:1.6;
+}
+
+/* QR lebih premium */
+.qr{
+  width:100%;
+  max-height:320px;
+  object-fit:contain;
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* tombol lebih mahal */
+.btn{
+  background:#fff;
+  color:#111;
+  border-radius:8px;
+  transition:0.2s;
+}
+
+.btn:hover{
+  transform:scale(1.03);
+}
+  .info-box{
+  text-align:left;
+  background:rgba(255,255,255,0.06);
+  padding:15px;
+  border-radius:12px;
+  margin-top:15px;
+  line-height:1.6;
+  font-size:13px;
+  letter-spacing:0.5px;
+}
+
+.info-box p{
+  margin:10px 0;
+}
+
+.info-box b{
+  color:#fff;
+  opacity:0.6;
+  font-size:11px;
+  letter-spacing:2px;
+}
 
 </style>
 </head>
 
 <body>
 
-<h2>PAYMENT</h2>
+<h2 class="title">PAYMENT CONFIRMATION</h2>
+<p class="subtitle">Complete your payment to process your order</p>
 
 <div class="card">
 
@@ -139,14 +207,15 @@ const courier = params.get("courier") || "-";
 /* tampilkan di halaman */
 document.getElementById("info").innerHTML =
 `
-<p>Produk: ${product}</p>
-<p>Size: ${size}</p>
-<p>Nama: ${name}</p>
-<p>No HP: ${phone}</p>
-<p>Alamat: ${address}</p>
-<p>Kurir: ${courier}</p>
+<div class="info-box">
+  <p><b>PRODUCT</b><br>${product}</p>
+  <p><b>SIZE</b><br>${size}</p>
+  <p><b>NAME</b><br>${name}</p>
+  <p><b>PHONE</b><br>${phone}</p>
+  <p><b>ADDRESS</b><br>${address}</p>
+  <p><b>COURIER</b><br>${courier}</p>
+</div>
 `;
-
 function finishOrder(){
 
   const message =
